@@ -7,26 +7,27 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ title }) => {
   return (
-    <header className="fixed inset-x-0 p-5 flex flex-row justify-between items-center z-10 text-white bg-stone-300 bg-opacity-35">
-      <div className="flex gap-10">
-        <h1 className="font-bold text-3xl">{title}</h1>
-        <nav className="flex justify-items-start pt-3 gap-10">
+    <header className="fixed inset-x-0 p-2 pl-7 pr-7 flex flex-row justify-between items-center z-10 text-green-900 bg-stone-200 font-sans2 uppercase">
+      <div className="flex gap-10 items-baseline">
+        <h1 className="font-bold text-xl">{title}</h1>
+        <nav className="flex text-green-900/70 gap-10">
           <Link
             to="/contact"
-            className="text-white font-bold border-b-2 border-transparent hover:border-b-2 hover:border-green-300 transition duration-500"
+            className=" text-sm font-bold"
           >
             Contact Us
           </Link>
-          <Link to="/services" className="text-white font-bold">
+          <Link to="/services" className="text-sm font-bold">
             Services
           </Link>
         </nav>
       </div>
-      <div className="flex gap-1 list-none">
+      <div className="flex gap-3 list-none ">
         {/*Using a link instead of a button: provides the error handling if button is clicked multiple times*/}
+        <Link to="/gallery" className="flex border-2 border-green-900/70 text-green-900/70 text-sm font-bold py-4 px-10 items-center"> View Gallery </Link>
         <Link
           to="/contact"
-          className="bg-green-400 hover:bg-green-300 text-white font-bold py-6 px-4 transition duration-200"
+          className=" text-sm flex bg-green-600 font-bold hover:bg-green-300 text-white py-5 px-4 transition duration-200 items-center"
         >
           Schedule Your Appointment Today
         </Link>
