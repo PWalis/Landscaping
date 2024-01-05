@@ -28,7 +28,7 @@ const Services: FC = () => {
                     <p className="text-zinc-500"> Keep your trees healthy and looking great with our professional tree trimming services. We'll remove dead or overgrown branches, shape your trees for optimal growth, and help keep your yard safe from falling limbs.</p>
                 </div>
                 </div>
-                <div className="flex flex-col items-center"> <img className="w-20 h-auto" src={IrrigationImage} alt="Gardening Shears for Landscaping"/>
+                <div className="flex flex-col items-center"> <img className="w-20 h-auto" src={IrrigationImage} alt="Irrigation for Landscaping"/>
                 <div className="bg-green-300/30 p-4 mb-4">
                     <h2 className="text-4xl font-bold  text-zinc-600 pb-3">Irrigation</h2>
                     <p className="text-zinc-500">Don't let dry weather ruin your lawn. Our irrigation services can help keep your grass and plants healthy and hydrated all season long. From installation to repairs, we've got you covered.</p>
