@@ -5,7 +5,7 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Gallery from "./components/pages/Gallery";
 import Contact from "./components/pages/Contact";
-import Services from "./components/pages/Services.tsx";
+import Services from "./components/page elements/Home Sections/Services.tsx";
 
 const router = createBrowserRouter([
     // Add routes for the component pages

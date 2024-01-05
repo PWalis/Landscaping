@@ -7,10 +7,10 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ title }) => {
   return (
-    <header className="fixed inset-x-0 p-5 flex flex-row justify-between items-center z-10 text-white bg-emerald-100 bg-opacity-25">
-      <div className="flex gap-3">
+    <header className="fixed inset-x-0 p-5 flex flex-row justify-between items-center z-10 text-white bg-stone-300 bg-opacity-35">
+      <div className="flex gap-10">
         <h1 className="font-bold text-3xl">{title}</h1>
-        <nav className="flex justify-items-start pt-3 gap-3 ml-3">
+        <nav className="flex justify-items-start pt-3 gap-10">
           <Link
             to="/contact"
             className="text-white font-bold border-b-2 border-transparent hover:border-b-2 hover:border-green-300 transition duration-500"
