@@ -10,7 +10,7 @@ const Services: FC = () => {
             <div className="mt-20 pr-64 pl-64">
                 <div className="flex flex-row items-center justify-center">
                     <div className="flex-col">
-                        <h1 className="font-bold text-5xl text-zinc-600 mr-8">Let's keep your home looking fresh</h1>
+                        <h1 className="font-bold text-5xl text-green-700/60 mr-8">Let's keep your home looking fresh</h1>
                         <p className="text-xl text-zinc-500 max-w-xl pt-3">"A well-maintained yard not only looks great,
                             but it also creates a welcoming environment for you and your family. Our yard clean-up
                             services are designed to help you achieve just that. From leaf removal to debris cleanup,
@@ -22,7 +22,7 @@ const Services: FC = () => {
                         className="w-1/3 h-auto rounded-lg shadow-lg"
                     />
                 </div>
-                <div className="text-center pt-14 pb-10"><h1 className="text-3xl text-stone-600 italic"> The Services
+                <div className="text-center pt-14 pb-10"><h1 className="text-3xl text-green-900/60 italic"> The Services
                     Our Customers Love: </h1></div>
 
                 <div className="flex justify-center gap-10">
