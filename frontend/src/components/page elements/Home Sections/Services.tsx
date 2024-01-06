@@ -28,7 +28,6 @@ const Services: FC = () => {
           />
         </div>
         <div className="text-center pt-14 pb-10">
-          {" "}
           <h1 className="text-3xl text-stone-600 italic">
             {" "}
             The Services Our Customers Love:{" "}
@@ -37,7 +36,6 @@ const Services: FC = () => {
 
         <div className="flex justify-center gap-10">
           <div className="flex flex-col items-center">
-            {" "}
             <img
               className="w-20 h-auto"
               src={GardeningShearsImage}
@@ -57,7 +55,6 @@ const Services: FC = () => {
             </div>
           </div>
           <div className="flex flex-col items-center">
-            {" "}
             <img
               className="w-20 h-auto"
               src={IrrigationImage}
@@ -76,7 +73,6 @@ const Services: FC = () => {
             </div>
           </div>
           <div className="flex flex-col items-center">
-            {" "}
             <img
               className="w-20 h-auto"
               src={MaintenanceImage}
