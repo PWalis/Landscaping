@@ -6,6 +6,7 @@ import About from "./components/pages/About";
 import Gallery from "./components/pages/Gallery";
 import Contact from "./components/pages/Contact";
 import Services from "./components/page elements/Home Sections/Services.tsx";
+import Testimonials from "./components/page elements/Home Sections/Testimonials.tsx";
 
 const router = createBrowserRouter([
     // Add routes for the component pages
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     { path: "/gallery", element: <Gallery /> },
     { path: "/contact", element: <Contact /> },
     { path: "/services", element: <Services /> },
+    { path: "/testimonials", element: <Testimonials /> },
 ]);
 function App() {
   return <RouterProvider router={router} />;
