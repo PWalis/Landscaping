@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { type RefObject } from "react";
 =======
 import { type FC } from "react";
