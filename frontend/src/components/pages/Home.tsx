@@ -34,13 +34,9 @@ const Home: FC = () => {
     <>
       <Header title="Isai's Landscaping" servicesYPosition={servicesYPosition} isScrolled={scrollPosition>0 ? true : false} />
       <Main />
-<<<<<<< HEAD
       <Services ref={servicesRef} />
       <Testimonials />
       <Footer />
-=======
-      <Services />
->>>>>>> 16a50207ad4b40e137e263a549fbee06fad64f46
     </>
   );
 };
