@@ -8,7 +8,7 @@ interface ServicesProps {
   ref: RefObject<HTMLDivElement>;
 }
 
-const Services = React.forwardRef<HTMLDivElement, ServicesProps>(( props, ref ) => {
+const Services = React.forwardRef<HTMLDivElement, ServicesProps>(( _props, ref ) => {
   return (
     <section className="h-lvh bg-stone-300/50 flex flex-col items-center">
       <div className="mt-20 pr-64 pl-64" ref={ref}>
