@@ -11,7 +11,7 @@ const Header: FC<HeaderProps> = ({ title, servicesYPosition, isScrolled }) => {
 
 
   return (
-    <header className={`fixed inset-x-0 p-2 pl-7 pr-7 flex flex-row justify-between items-center z-50 bg-gray-900 text-gray-300 font-sans2 uppercase transition-all duration-500 ${isScrolled ? (`h-20 ${servicesYPosition<200 ? "bg-opacity-100": "bg-opacity-50"}`) : "h-28 bg-opacity-0"}`}>
+    <header className={`fixed inset-x-0 p-2 pl-7 pr-7 flex flex-row justify-between items-center z-50 bg-gray-900 text-gray-300 font-sans2 uppercase transition-all duration-500 ${isScrolled ? (`h-20 ${servicesYPosition<300 ? "bg-opacity-100": "bg-opacity-50"}`) : "h-28 bg-opacity-0"}`}>
       <div className="flex gap-10 items-baseline">
         <h1 className="font-bold text-xl ">{title}</h1>
         <nav className="flex gap-10">
