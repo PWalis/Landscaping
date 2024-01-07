@@ -1,11 +1,14 @@
-import { type FC } from "react";
+import { type FC, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 interface HeaderProps {
   title: string;
+  background_color?: string;
 }
 
-const Header: FC<HeaderProps> = ({ title }) => {
+const Header: FC<HeaderProps> = ({ title, background_color }) => {
+
+
   return (
     <header className="fixed inset-x-0 p-2 pl-7 pr-7 flex flex-row justify-between items-center z-10 text-green-900 bg-stone-200 font-sans2 uppercase">
       <div className="flex gap-10 items-baseline">
