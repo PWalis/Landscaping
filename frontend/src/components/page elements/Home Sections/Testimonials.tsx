@@ -3,6 +3,7 @@ import TestimonialImage1 from "../../../assets/testimonials-image-1.jpg"
 import TestimonialImage2 from "../../../assets/testimonials-image-2.jpg"
 import TestimonialImage3 from "../../../assets/testimonials-image-3.jpg"
 
+
 const Testimonials: FC = () => {
     return (
         <section className="h-auto bg-stone-300/90 flex items-center">

@@ -1,9 +1,9 @@
 import { type FC, useState, useEffect, useRef } from "react";
 import Header from "../UI/Header";
-import Main from "../page elements/Home Sections/Main.tsx"
+import Main from "../page elements/Home Sections/Main.tsx";
 import Services from "../page elements/Home Sections/Services.tsx";
 import Testimonials from "../page elements/Home Sections/Testimonials.tsx";
-import Footer from "../UI/Footer.tsx"
+import Footer from "../UI/Footer.tsx";
 
 const Home: FC = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -18,22 +18,25 @@ const Home: FC = () => {
 
     window.addEventListener("scroll", handleScroll);
 
+    if (servicesRef.current) {
+      setServicesYPosition(servicesRef.current.getBoundingClientRect().top);
+    }
+
+   
+
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleServicesYPosition: number = () => {
-    let position: number = 0;
-    return position;
-  };
-
+  }, [servicesRef.current?.getBoundingClientRect().top]);
+    
+  //debugging logs
+  // console.log(servicesYPosition, scrollPosition);
 
   return (
     <>
-      <Header title="Isai's Landscaping" background_color="" />
+      <Header title="Isai's Landscaping" servicesYPosition={servicesYPosition} isScrolled={scrollPosition>0 ? true : false} />
       <Main />
-      <Services />
-        <Testimonials />
-        <Footer />
+      <Services ref={servicesRef} />
+      <Testimonials />
+      <Footer />
     </>
   );
 };
