@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# An Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The vision of this landscaping web application is to showcase the portfolio and services of 'Isia Landscaping' for interested prospective
+clients. Currently, Isia does not have a website for his landscaping business. The web is virtual real estate and a well-designed
+website is a large part of showcasing one's reputable business ventures. The website offers a quick, easy overview for
+a prospect to gain an understanding of doing business with an organization. The other importance of the website is tasked with
+self-scheduling clients, giving the client the ability to choose their service package on their time and effectively automating the process.
 
-Currently, two official plugins are available:
+The web application will prove to be a valuable asset for the company.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Landing Page
+The intended effect of the landing page is to offer the customer a taste of exactly what the vision of Isia's Landscaping is: Excellent yardwork services.
+To produce this result, the main background is a photo of a nice, well maintained Arizona residency. There are two call-to-action buttons
+strategically and diagonally placed, offering a quick objective for the achievement of the website (Scheduling an Appointment). 
 
-## Expanding the ESLint configuration
+# Service Page
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Testimonials Page
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+This Web Application is run with:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Frontend: React, Tailwind
+
+- Backend: Express.js MySQL
+
+
+
+

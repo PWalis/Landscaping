@@ -2,7 +2,6 @@ import {type FC} from "react";
 import TestimonialImage1 from "../../../assets/testimonials-image-1.jpg"
 import TestimonialImage2 from "../../../assets/testimonials-image-2.jpg"
 import TestimonialImage3 from "../../../assets/testimonials-image-3.jpg"
-import ArrowScroll from "../../../assets/double-arrows.png"
 import TestimonialCard from "../../UI/TestimonialCard.tsx";
 
 
