@@ -22,19 +22,17 @@ const Home: FC = () => {
       setServicesYPosition(servicesRef.current.getBoundingClientRect().top);
     }
 
+   
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [servicesRef.current?.getBoundingClientRect().top]);
-
+    
   //debugging logs
   // console.log(servicesYPosition, scrollPosition);
 
   return (
     <>
-      <Header
-        title="Isai's Landscaping"
-        servicesYPosition={servicesYPosition}
-        isScrolled={scrollPosition > 0 ? true : false}
-      />
+      <Header title="Isai's Landscaping" servicesYPosition={servicesYPosition} isScrolled={scrollPosition>0 ? true : false} />
       <Main />
       <Services ref={servicesRef} />
       <Testimonials />

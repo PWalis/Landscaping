@@ -4,7 +4,7 @@ import Header from "../UI/Header";
 const Gallery: FC = () => {
     return (
         <>
-            <Header title="Isai's Landscaping | Gallery" />
+            <Header title="Isai's Landscaping | Gallery" isScrolled={false} servicesYPosition={0}/>
         </>
     );
 };

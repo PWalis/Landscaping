@@ -7,6 +7,7 @@ import Gallery from "./components/pages/Gallery";
 import Contact from "./components/pages/Contact";
 import Services from "./components/page elements/Home Sections/Services.tsx";
 import Testimonials from "./components/page elements/Home Sections/Testimonials.tsx";
+import MakeAppointment from "./components/pages/MakeAppointment.tsx";
 
 const router = createBrowserRouter([
     // Add routes for the component pages
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     { path: "/contact", element: <Contact /> },
     { path: "/services", element: <Services /> },
     { path: "/testimonials", element: <Testimonials /> },
+    { path: "/makeAppointment", element: <MakeAppointment /> },
 ]);
 function App() {
   return <RouterProvider router={router} />;
