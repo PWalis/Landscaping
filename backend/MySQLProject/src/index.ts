@@ -2,6 +2,7 @@ import { AppDataSource } from "./data-source"
 import { User } from "./entity/User"
 import * as express from "express"
 import {Express, Request, Response} from "express"
+import "dotenv/config"
 
 AppDataSource.initialize().then(async () => {
 
