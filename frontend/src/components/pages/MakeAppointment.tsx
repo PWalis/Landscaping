@@ -16,8 +16,9 @@ const MakeAppointment: FC = () => {
   return (
     <>
       <AppointmentForm
-        formQuestion="What the fuck?"
+        formQuestion="What services are you looking for?"
         submitHandler={submitHandler}
+        servicesQuestion="What services are you looking for?"
       />
       <div className="bg-image-2"></div>
     </>
