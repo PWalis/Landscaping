@@ -9,10 +9,10 @@ interface AppointmentFormProps {
     servicesQuestion: string;
 }
 
-const AppointmentForm: FC<AppointmentFormProps> = ({
+const AppointmentForm: FC<AppointmentFormProps> = ({submitHandler, formQuestion, servicesQuestion
                                                    }) => {
     return (
-        <div className="flex justify-center h-screen m-auto flex-col w-1/2 text-white">
+        <form onSubmit={submitHandler} className="flex justify-center h-screen m-auto flex-col w-1/2 text-white">
             {/*<form className="m-auto flex flex-col w-1/2 text-white" onSubmit={submitHandler}>*/}
                 {/*<label className="text-5xl text-gray-100 font-bold pb-5">*/}
                 {/*  {formQuestion}*/}
@@ -33,7 +33,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({
                 Next
             </button>
             </div>
-          </div>
+          </form>
     );
 };
 
