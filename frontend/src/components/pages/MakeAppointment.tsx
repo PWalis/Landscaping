@@ -37,7 +37,7 @@ const MakeAppointment: FC = () => {
       <AppointmentForm
         formQuestion="What services are you looking for?"
         submitHandler={testSubmitHandler}
-        servicesQuestion="What services are you looking for?"
+        formType="Services"
       />
       <div className="bg-image-2"></div>
     </>
