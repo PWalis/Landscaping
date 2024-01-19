@@ -7,6 +7,7 @@ const MakeAppointment: FC = () => {
   // The form will be split into multiple components, each component will be a question
 
   const [count, setCount] = useState<number>(0);
+  const [appointmentData, setAppointmentData] = useState<any>({services:[], date:new Date(), phoneNumber:"", email:""}); // This will be the object that will be sent to the backend
   const form = new FormData();
 
   for (const value of form.values()) {
@@ -16,7 +17,7 @@ const MakeAppointment: FC = () => {
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCount((prevCount) => prevCount + 1);
-    console.log("submitted", e.target.value);
+    console.log("submitted", (e.target as HTMLInputElement).value);
     // form.append(valueName[count], e.target.value);
   };
 
@@ -44,22 +45,22 @@ const MakeAppointment: FC = () => {
   const appointmentFormSequence = [
     <AppointmentForm
       formQuestion="What services are you looking for?"
-      submitHandler={submitHandler}
+      submitHandler={setAppointmentData}
       formType="Services"
     />,
     <AppointmentForm
       formQuestion="What day works best for you?"
-      submitHandler={submitHandler}
+      submitHandler={setAppointmentData}
       formType="DateRange"
     />,
     <AppointmentForm
       formQuestion="What is a good number to reach you at?"
-      submitHandler={submitHandler}
+      submitHandler={setAppointmentData}
       formType="TextInput"
     />,
     <AppointmentForm
       formQuestion="What is your email?"
-      submitHandler={submitHandler}
+      submitHandler={setAppointmentData}
       formType="TextInput"
     />,
     <AppointmentForm

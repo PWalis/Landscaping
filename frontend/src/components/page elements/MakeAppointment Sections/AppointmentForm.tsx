@@ -26,7 +26,7 @@ const AppointmentForm: FC<AppointmentFormProps> = ({
       <DateRange formQuestion={formQuestion} submitHandler={submitHandler} />
     ),
     Photo: (
-      <Photo />
+      <Photo formQuestion={formQuestion} submitHandler={submitHandler}/>
     ) 
   };
 
