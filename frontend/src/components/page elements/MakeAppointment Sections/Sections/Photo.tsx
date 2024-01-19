@@ -1,10 +1,15 @@
 import { type FC } from "react";
 
-const Photo: FC = () => {
+interface PhotoProps {
+  submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
+  formQuestion: string;
+}
+
+const Photo: FC<PhotoProps> = ({formQuestion, submitHandler}) => {
   return (
-    <div className="flex justify-center h-screen m-auto flex-col w-1/2 text-white">
+    <form className="flex justify-center h-screen m-auto flex-col w-1/2 text-white" onSubmit={submitHandler}>
       <label className="text-5xl text-gray-100 font-bold pb-5">
-        Upload a photo of your yard
+        {formQuestion}
       </label>
       <input
         className=" w-auto h-10 rounded-xl focus:outline-none px-2 font-bold text-xl font-sans text-black"
@@ -18,7 +23,7 @@ const Photo: FC = () => {
           Next
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 

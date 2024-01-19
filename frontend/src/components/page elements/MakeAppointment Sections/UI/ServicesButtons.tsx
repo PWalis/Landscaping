@@ -20,6 +20,7 @@ const ServicesButtons: FC<ServicesButtonsProps> = ({ title }) => {
         <button
             className={`font-sans2 border-2 text-2xl uppercase font-bold p-14 border-white rounded-3xl text-white ${buttonColor}`}
             onClick={handleClick}
+            type="button"
         >
             {title}
         </button>

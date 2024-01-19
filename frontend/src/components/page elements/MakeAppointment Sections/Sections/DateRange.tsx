@@ -1,4 +1,4 @@
-import { type FC, useState } from "react";
+import { type FC } from "react";
 import { DateCalendar } from "@mui/x-date-pickers";
 
 interface DateRangeProps {
@@ -8,7 +8,7 @@ interface DateRangeProps {
 
 const DateRange: FC<DateRangeProps> = ({ submitHandler, formQuestion }) => {
   return (
-    <form className="flex flex-col justify-center align-middle m-auto h-screen ">
+    <form className="flex flex-col justify-center align-middle m-auto h-screen" onSubmit={submitHandler}>
       <label className="text-5xl text-gray-100 font-bold pb-5 mx-auto">
         {formQuestion}
       </label>

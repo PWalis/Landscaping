@@ -17,6 +17,7 @@ const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler }) => {
       <input
         className=" w-auto h-10 rounded-xl focus:outline-none px-2 font-bold text-xl font-sans text-black"
         type="text"
+        key={formQuestion}
       />
       <div className="flex justify-center pt-10">
         <button
