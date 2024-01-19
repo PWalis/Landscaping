@@ -6,11 +6,18 @@ const MakeAppointment: FC = () => {
   // The form will contain the following fields: Service type (can be multiple), time, date, email, phone number, and photos of yard(optional)
   // The form will be split into multiple components, each component will be a question
 
-  const [formQuestion, setFormQuestion] = useState<string>("");
+  const [count, setCount] = useState<number>(0);
+  const form = new FormData();
+
+  for (const value of form.values()) {
+    console.log("values",value);
+  }
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("Form submitted");
     e.preventDefault();
+    setCount((prevCount) => prevCount + 1);
+    console.log("submitted", e.target.value);
+    // form.append(valueName[count], e.target.value);
   };
 
   const testSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,13 +39,39 @@ const MakeAppointment: FC = () => {
     });
   };
 
+  const valueName = ["services", "date", "phoneNumber", "email", "photos"];
+
+  const appointmentFormSequence = [
+    <AppointmentForm
+      formQuestion="What services are you looking for?"
+      submitHandler={submitHandler}
+      formType="Services"
+    />,
+    <AppointmentForm
+      formQuestion="What day works best for you?"
+      submitHandler={submitHandler}
+      formType="DateRange"
+    />,
+    <AppointmentForm
+      formQuestion="What is a good number to reach you at?"
+      submitHandler={submitHandler}
+      formType="TextInput"
+    />,
+    <AppointmentForm
+      formQuestion="What is your email?"
+      submitHandler={submitHandler}
+      formType="TextInput"
+    />,
+    <AppointmentForm
+      formQuestion="If you have any photos of your yard please add here?"
+      submitHandler={submitHandler}
+      formType="Photo"
+    />,
+  ];
+
   return (
     <>
-      <AppointmentForm
-        formQuestion="What services are you looking for?"
-        submitHandler={testSubmitHandler}
-        servicesQuestion="What services are you looking for?"
-      />
+      {appointmentFormSequence[count]}
       <div className="bg-image-2"></div>
     </>
   );

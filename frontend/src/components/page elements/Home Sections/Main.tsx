@@ -13,7 +13,7 @@ const Main: FC = () => {
                         <span className="font-normal">we're here to help you make the most of it</span>
                     </p>
                     <Link
-                        to="/contact"
+                        to="/makeAppointment"
                         className="bg-green-600 hover:bg-green-500 text-white font-bold font-sans2 uppercase py-6 px-4 flex items-center justify-center"
                     >
                         Schedule Your Appointment Today
