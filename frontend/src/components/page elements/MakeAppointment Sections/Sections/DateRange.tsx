@@ -1,5 +1,8 @@
 import { type FC } from "react";
 import { DateCalendar } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
+import { useDispatch } from "react-redux";
+import { setDate } from "../../../../ReduxStore/AppointmentDataSlice";
 
 interface DateRangeProps {
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -7,13 +10,20 @@ interface DateRangeProps {
 }
 
 const DateRange: FC<DateRangeProps> = ({ submitHandler, formQuestion }) => {
+  const dispatch = useDispatch();
+
+  const handleOnChange = (date: Date | null) => {
+    dispatch(setDate(dayjs(date).format("YYYY-MM-DD")));
+    console.log(dayjs(date).format("YYYY-MM-DD"));
+  };
+
   return (
     <form className="flex flex-col justify-center align-middle m-auto h-screen" onSubmit={submitHandler}>
       <label className="text-5xl text-gray-100 font-bold pb-5 mx-auto">
         {formQuestion}
       </label>
       <div className="flex justify-center gap-0 mx-auto bg-gray-100 rounded-lg w-1/5 pt-5">
-        <DateCalendar sx={{ margin: 0 }} />
+        <DateCalendar sx={{ margin: 0 }} onChange={handleOnChange}/>
       </div>
       <div className="flex justify-center pt-10">
         <button

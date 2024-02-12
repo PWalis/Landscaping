@@ -1,13 +1,27 @@
 import ServicesButtons from "../UI/ServicesButtons.tsx";
-import { FC, useState } from "react";
+import { FC, useState, Dispatch, SetStateAction } from "react";
+import { useDispatch } from "react-redux";
+import { setAdditionalService } from "../../../../ReduxStore/AppointmentDataSlice.ts";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../ReduxStore/Store.ts";
+import { motion } from "framer-motion";
 
 interface ServicesProps {
   serviceQuestion: string;
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
+  setServices: (services: string[]) => void;
+  key: string;
 }
 
-const Services: FC<ServicesProps> = ({ serviceQuestion, submitHandler }) => {
+const Services: FC<ServicesProps> = ({
+  serviceQuestion,
+  submitHandler,
+  setServices,
+  key,
+}) => {
   const [showInput, setShowInput] = useState(false);
+  const store = useSelector((state: RootState) => state.appointmentData);
+  const dispatch = useDispatch();
 
   const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     // Prevent the default behavior of the button
@@ -17,10 +31,18 @@ const Services: FC<ServicesProps> = ({ serviceQuestion, submitHandler }) => {
     setShowInput((prevShowInput) => !prevShowInput);
   };
 
+  const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setAdditionalService(e.target.value));
+  };
+
   return (
-    <form
+    <motion.form
       onSubmit={submitHandler}
       className="flex justify-center h-screen m-auto flex-col w-1/2 text-white"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key={key}
     >
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-5xl font-bold justify-center align-middle mb-10">
@@ -28,9 +50,9 @@ const Services: FC<ServicesProps> = ({ serviceQuestion, submitHandler }) => {
         </h1>
         {/* SERVICES BUTTONS LOCATED IN UI/ServicesButtons.tsx */}
         <div className="flex flex-row gap-3 justify-center">
-          <ServicesButtons title={"Landscaping"} />
-          <ServicesButtons title={"Irrigation"} />
-          <ServicesButtons title={"Maintenance"} />
+          <ServicesButtons title={"Landscaping"} updateState={setServices} />
+          <ServicesButtons title={"Irrigation"} updateState={setServices} />
+          <ServicesButtons title={"Maintenance"} updateState={setServices} />
         </div>
 
         {/* Button to toggle input visibility */}
@@ -46,6 +68,8 @@ const Services: FC<ServicesProps> = ({ serviceQuestion, submitHandler }) => {
         <div className="mt-4 w-[500px] h-[40px]">
           <input
             type="text"
+            onChange={onchange}
+            value={store.value.additionalService}
             placeholder="Please enter details about your service needs"
             className={`text-zinc-500 w-[500px] h-10 focus:outline-none px-2 font-bold text-xl font-sans2 ${
               showInput ? "block" : "hidden"
@@ -61,7 +85,7 @@ const Services: FC<ServicesProps> = ({ serviceQuestion, submitHandler }) => {
           Next
         </button>
       </div>
-    </form>
+    </motion.form>
   );
 };
 

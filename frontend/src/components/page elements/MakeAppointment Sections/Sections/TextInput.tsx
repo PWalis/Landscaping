@@ -1,11 +1,21 @@
+import { UnknownAction } from "@reduxjs/toolkit";
 import { type FC } from "react";
+import { useDispatch } from "react-redux";
 
 interface TextInputProps {
   formQuestion: string;
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
+  storeReducerFunction: (text: string) => UnknownAction;
+  storeValue: string;
 }
 
-const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler }) => {
+const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler, storeReducerFunction, storeValue }) => {
+  const dispatch = useDispatch();
+
+  const onchangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(storeReducerFunction(e.target.value)); // this should maybe be a thunk function instead of a direct dispatch
+  };
+
   return (
     <form
       className="flex justify-center h-screen m-auto flex-col w-1/2 text-white"
@@ -18,6 +28,8 @@ const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler }) => {
         className=" w-auto h-10 rounded-xl focus:outline-none px-2 font-bold text-xl font-sans text-black"
         type="text"
         key={formQuestion}
+        onChange={onchangeHandler}
+        value={storeValue}
       />
       <div className="flex justify-center pt-10">
         <button
