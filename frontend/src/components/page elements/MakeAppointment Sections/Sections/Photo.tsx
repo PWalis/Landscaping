@@ -1,13 +1,15 @@
 import { type FC } from "react";
 import { useDispatch } from "react-redux";
 import { addImage } from "../../../../ReduxStore/AppointmentDataSlice";
+import { motion } from "framer-motion";
 
 interface PhotoProps {
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
   formQuestion: string;
+  key: string;
 }
 
-const Photo: FC<PhotoProps> = ({formQuestion, submitHandler}) => {
+const Photo: FC<PhotoProps> = ({ formQuestion, submitHandler, key }) => {
   const dispatch = useDispatch();
 
   const uploadPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,9 +19,15 @@ const Photo: FC<PhotoProps> = ({formQuestion, submitHandler}) => {
     dispatch(addImage([photo]));
   };
 
-
   return (
-    <form className="flex justify-center h-screen m-auto flex-col w-1/2 text-white" onSubmit={submitHandler}>
+    <motion.form
+      className="flex justify-center h-screen m-auto flex-col w-1/2 text-white"
+      onSubmit={submitHandler}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key={key}
+    >
       <label className="text-5xl text-gray-100 font-bold pb-5">
         {formQuestion}
       </label>
@@ -38,7 +46,7 @@ const Photo: FC<PhotoProps> = ({formQuestion, submitHandler}) => {
           Next
         </button>
       </div>
-    </form>
+    </motion.form>
   );
 };
 

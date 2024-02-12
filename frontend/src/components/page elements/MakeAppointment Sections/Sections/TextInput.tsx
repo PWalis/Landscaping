@@ -1,15 +1,17 @@
 import { UnknownAction } from "@reduxjs/toolkit";
 import { type FC } from "react";
 import { useDispatch } from "react-redux";
+import {motion} from "framer-motion";
 
 interface TextInputProps {
   formQuestion: string;
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
   storeReducerFunction: (text: string) => UnknownAction;
   storeValue: string;
+  key: string;
 }
 
-const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler, storeReducerFunction, storeValue }) => {
+const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler, storeReducerFunction, storeValue, key }) => {
   const dispatch = useDispatch();
 
   const onchangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,9 +19,13 @@ const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler, storeReduc
   };
 
   return (
-    <form
+    <motion.form
       className="flex justify-center h-screen m-auto flex-col w-1/2 text-white"
       onSubmit={submitHandler}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      key={key}
     >
       <label className="text-5xl text-gray-100 font-bold pb-5">
         {formQuestion}
@@ -30,6 +36,7 @@ const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler, storeReduc
         key={formQuestion}
         onChange={onchangeHandler}
         value={storeValue}
+        autoFocus={true}
       />
       <div className="flex justify-center pt-10">
         <button
@@ -39,7 +46,7 @@ const TextInput: FC<TextInputProps> = ({ formQuestion, submitHandler, storeReduc
           Next
         </button>
       </div>
-    </form>
+    </motion.form>
   );
 };
 

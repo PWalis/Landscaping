@@ -1,5 +1,5 @@
 import ServicesButtons from "../UI/ServicesButtons.tsx";
-import { FC, useState, Dispatch, SetStateAction } from "react";
+import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAdditionalService } from "../../../../ReduxStore/AppointmentDataSlice.ts";
 import { useSelector } from "react-redux";

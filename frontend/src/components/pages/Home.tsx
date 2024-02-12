@@ -4,6 +4,7 @@ import Main from "../page elements/Home Sections/Main.tsx";
 import Services from "../page elements/Home Sections/Services.tsx";
 import Testimonials from "../page elements/Home Sections/Testimonials.tsx";
 import Footer from "../UI/Footer.tsx";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Home: FC = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -21,8 +22,6 @@ const Home: FC = () => {
     if (servicesRef.current) {
       setServicesYPosition(servicesRef.current.getBoundingClientRect().top);
     }
-
-   
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [servicesRef.current?.getBoundingClientRect().top]);

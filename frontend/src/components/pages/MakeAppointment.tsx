@@ -68,39 +68,39 @@ const MakeAppointment: FC = () => {
     <DateRange
       formQuestion={"What day works best for you?"}
       submitHandler={submitHandler}
-      key={"date"}
+      key="date"
     />,
     <TextInput
       formQuestion={"What is a good number to reach you at?"}
       submitHandler={submitHandler}
       storeReducerFunction={setPhone}
       storeValue={store.value.phone}
-      key={"phone"}
+      key="phone"
     />,
     <TextInput
       formQuestion={"What is your email?"}
       submitHandler={submitHandler}
       storeReducerFunction={setEmail}
       storeValue={store.value.email}
-      key={"email"}
+      key="email"
     />,
     <TextInput
       formQuestion={"What is your name?"}
       submitHandler={submitHandler}
       storeReducerFunction={setName}
       storeValue={store.value.name}
-      key={"name"}
+      key="name"
     />,
     <Photo
       formQuestion={"If you have any photos of your yard please add them here"}
       submitHandler={submitHandler}
-      key={"photo"}
+      key="photo"
     />,
   ];
 
   return (
     <>
-      <AnimatePresence initial={false} mode="wait">
+      <AnimatePresence initial={true} mode="wait">
         {appointmentFormSequence[count]}
         {count > appointmentFormSequence.length - 1 ? (
           <SuccessMessage key={"success"}></SuccessMessage>
