@@ -1,4 +1,6 @@
 import { type FC } from "react";
+import { useDispatch } from "react-redux";
+import { addImage } from "../../../../ReduxStore/AppointmentDataSlice";
 
 interface PhotoProps {
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -6,14 +8,27 @@ interface PhotoProps {
 }
 
 const Photo: FC<PhotoProps> = ({formQuestion, submitHandler}) => {
+  const dispatch = useDispatch();
+
+  const uploadPhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+    const photo = window.URL.createObjectURL(files![0]);
+
+    dispatch(addImage([photo]));
+  };
+
+
   return (
     <form className="flex justify-center h-screen m-auto flex-col w-1/2 text-white" onSubmit={submitHandler}>
       <label className="text-5xl text-gray-100 font-bold pb-5">
         {formQuestion}
       </label>
       <input
-        className=" w-auto h-10 rounded-xl focus:outline-none px-2 font-bold text-xl font-sans text-black"
+        className="w-auto h-10 rounded-xl focus:outline-none px-2 font-bold text-xl font-sans text-white"
         type="file"
+        id="photo"
+        onChange={uploadPhoto}
+        multiple
       />
       <div className="flex justify-center pt-10">
         <button
