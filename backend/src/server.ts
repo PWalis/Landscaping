@@ -7,6 +7,7 @@ import "dotenv/config";
 import { GalleryRouter } from "./router/Gallery";
 import { LoginRouter } from "./router/AuthenticateRouter";
 import { authenticateToken } from "./middleware/AuthenticateTokenMiddleware";
+import { AuthorizationRouter } from "./router/AuthorizatoinRouter";
 
 // Establish connection to database
 AppDataSource.initialize()
@@ -33,6 +34,7 @@ app.use(bodyParser.json({limit: "50mb"}));
 // Routes
 app.use("/api/gallery", GalleryRouter);
 app.use("/api/auth", LoginRouter);
+app.use("/api/auth", AuthorizationRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
