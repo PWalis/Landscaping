@@ -23,7 +23,7 @@ const router = createBrowserRouter([
   { path: "/testimonials", element: <Testimonials /> },
   { path: "/makeAppointment", element: <MakeAppointment /> },
   { path: "/login", element: <Login /> },
-  { path: "GalleryDashboard", element: <GalleryDashboard /> },
+  { path: "/GalleryDashboard", element: <GalleryDashboard /> },
 ]);
 function App() {
   return (

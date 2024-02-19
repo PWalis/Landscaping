@@ -1,8 +1,7 @@
 const express = require("express");
-import { getUsers, deleteUsers } from "../controller/GalleryController";
+import { getUsers, uploadBeforeAndAfterImage } from "../controller/GalleryController";
 
 export const GalleryRouter = express.Router();
 
 GalleryRouter.get("/getUsers", getUsers)
-
-// GalleryRouter.delete("/deleteUsers", deleteUsers)
+GalleryRouter.post("/uploadBeforeAndAfterImage", uploadBeforeAndAfterImage)

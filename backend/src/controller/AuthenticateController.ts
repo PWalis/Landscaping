@@ -16,3 +16,5 @@ export const validatePassword = (
 ): boolean => {
   return hashAndSalt(password, salt) === hashedPassword;
 };
+
+//add this all to middleware

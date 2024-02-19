@@ -13,4 +13,7 @@ export class Admin {
 
     @Column()
     hashedPassword: string;
+
+    @Column()
+    role: string;
 }

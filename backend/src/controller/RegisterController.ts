@@ -10,10 +10,16 @@ export const registerAdmin = async (req: Request, res: Response) => {
       username: req.body.username,
       salt: salt,
       hashedPassword: hashedPassword,
+      role: "admin",
     };
     await AppDataSource.manager.insert("admin", admin);
-    res.json({ message: "Admin registered", hashedPassword: hashedPassword, salt: salt, password: req.body.password});
+    res.json({ message: "Admin registered" });
   } else {
     res.json({ message: "Failed ot register Admin" });
   }
+};
+
+export const deleteAllAdmins = async (req: Request, res: Response) => {
+  await AppDataSource.manager.delete("admin", {});
+  res.json({ message: "All Admins deleted" });
 };

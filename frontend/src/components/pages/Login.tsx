@@ -1,8 +1,12 @@
 import { type FC, useState } from "react";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Login: FC = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(["accessToken"]);
 
   const usernameOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -18,12 +22,21 @@ const Login: FC = () => {
 
   const submitHandler = async(event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await fetch("http://localhost:3307/api/login", {
+    await fetch("http://localhost:3307/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({username: username, password: password }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      setCookie("accessToken", data.accessToken, { path: "/" });
+      navigate("/GalleryDashboard");
+    })
+    .catch((error) => {
+      console.error("Error:", error);
     });
   }
 

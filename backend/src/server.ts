@@ -6,6 +6,7 @@ import { Express } from "express";
 import "dotenv/config";
 import { GalleryRouter } from "./router/Gallery";
 import { LoginRouter } from "./router/AuthenticateRouter";
+import { authenticateToken } from "./middleware/AuthenticateTokenMiddleware";
 
 // Establish connection to database
 AppDataSource.initialize()
@@ -26,12 +27,12 @@ const options: cors.CorsOptions = {
 
 // Middleware
 app.use(cors(options));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: "50mb"}));
+// app.use("/api/gallery", authenticateToken); // Protect the gallery route
 
 // Routes
 app.use("/api/gallery", GalleryRouter);
 app.use("/api/auth", LoginRouter);
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

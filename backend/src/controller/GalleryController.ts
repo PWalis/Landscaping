@@ -15,8 +15,8 @@ export const getUsers = async (req: Request, res: Response) => {
   res.json(users);
 };
 
-export const deleteUsers = async (req: Request, res: Response) => {
-  const users = await AppDataSource.manager.find(User);
-  await AppDataSource.manager.remove(users);
-  res.json({ Message: "All users deleted" });
+export const uploadBeforeAndAfterImage = async (req: Request, res: Response) => {
+  console.log(req.body);
+  res.json({ body: req.body});
 };
+
