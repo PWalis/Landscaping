@@ -43,12 +43,12 @@ const UploadGalleryItem: FC = () => {
   };
 
   return (
-    <div className="flex flex-col max-w-96">
-      <h1 className="text-2xl text-gray-800 font-bold pb-3">
+    <div className="flex flex-col max-w-96 items-center justify-center">
+      <h1 className="text-2xl text-green-900 font-bold pb-3">
         Upload Gallery Item
       </h1>
-      <form className="grid grid-cols-2" onSubmit={submitHandler}>
-        <label id="imgBefore">Before Image</label>
+      <form className="grid grid-cols-2 text-zinc-500 pb-3" onSubmit={submitHandler}>
+        <label id="imgBefore">Browse Before Image: </label>
         <input
           type="file"
           id="img"
@@ -56,7 +56,7 @@ const UploadGalleryItem: FC = () => {
           accept="image/*"
           onChange={imgBeforeChangeHandler}
         />
-        <label id="imgAfter">After Image</label>
+        <label id="imgAfter">Browse After Image: </label>
         <input
           type="file"
           id="img"
@@ -64,12 +64,14 @@ const UploadGalleryItem: FC = () => {
           accept="image/*"
           onChange={imgAfterChangeHandler}
         />
+        <div className="col-span-2 flex items-center justify-center">
         <button
           type="submit"
-          className="border-2 border-gray-200 bg-gray-200/30 rounded-b-sm text-white hover:bg-green-600/10 py-1 px-3 text-lg font-bold font-sans2 mt-2"
+          className="rounded-b-sm text-white bg-green-800 py-1 px-10 text-lg font-bold font-sans2 mt-3"
         >
           Submit
         </button>
+        </div>
       </form>
     </div>
   );
