@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
                 className="flex border-2 border-gray-100 text-white text-sm font-bold py-4 px-10 items-center"> View
             Gallery </Link>
           <Link
-              to="/contact"
+              to="/makeAppointment"
               className=" text-sm flex bg-green-500/80 font-bold hover:bg-green-500 text-white py-5 px-4 transition duration-200 items-center"
           >
             Schedule Your Appointment Today
