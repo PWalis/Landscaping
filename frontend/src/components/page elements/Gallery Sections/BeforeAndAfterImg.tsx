@@ -1,4 +1,4 @@
-import React, {type FC} from "react";
+import {type FC} from "react";
 import ReactCompareImage from "react-compare-image";
 import afterPic from "../../../assets/after-pic.jpg";
 import beforePic from "../../../assets/before-pic.jpg";
