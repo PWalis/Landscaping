@@ -1,21 +1,23 @@
 import { type FC, useState } from "react";
+import { useCookies } from "react-cookie";
 
 const UploadGalleryItem: FC = () => {
-  const [imgBefore, setImgBefore] = useState<string>("");
-  const [imgAfter, setImgAfter] = useState<string>("");
+  const [imgBefore, setImgBefore] = useState<File>(null!);
+  const [imgAfter, setImgAfter] = useState<File>(null!);
+  const [cookies, setCookie] = useCookies(["accessToken"]);
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = {
-      beforeImage: imgBefore,
-      afterImage: imgAfter,
-    };
+    const formData = new FormData();
+    formData.append("files", imgBefore);
+    formData.append("files", imgAfter);
+    formData.append("test", "this is a fucking test to see if anything comes through the body of this damn ass request")
     await fetch("http://localhost:3307/api/Gallery/uploadBeforeAndAfterImage", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Authorization": "Bearer " + cookies.accessToken,
       },
-      body: JSON.stringify(data),
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
@@ -29,17 +31,19 @@ const UploadGalleryItem: FC = () => {
   const imgBeforeChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(event.target.files![0]);
-    reader.onloadend = (data) => {setImgBefore(data.target?.result as string)};
+    // const reader = new FileReader();
+    // reader.readAsDataURL(event.target.files![0]);
+    // reader.onloadend = (data) => {setImgBefore(data.target?.result as string)};
+    setImgBefore(event.target.files![0]);
   };
 
   const imgAfterChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(event.target.files![0]);
-    reader.onloadend = (data) => {setImgAfter(data.target?.result as string)};
+    // const reader = new FileReader();
+    // reader.readAsDataURL(event.target.files![0]);
+    // reader.onloadend = (data) => {setImgBefore(data.target?.result as string)};
+    setImgAfter(event.target.files![0]);
   };
 
   return (
