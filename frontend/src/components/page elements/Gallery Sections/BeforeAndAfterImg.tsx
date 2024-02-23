@@ -1,11 +1,11 @@
 import {type FC} from "react";
 import ReactCompareImage from "react-compare-image";
-import dog from "../../../assets/dog.jpg";
-import cat from "../../../assets/cat.jpg";
+import afterPic from "../../../assets/after-pic.jpg";
+import beforePic from "../../../assets/before-pic.jpg";
 
 const BeforeAndAfterImg: FC = () => {
     return (
-        <ReactCompareImage leftImage={dog} rightImage={cat}></ReactCompareImage>
+        <ReactCompareImage leftImage={beforePic} rightImage={afterPic}></ReactCompareImage>
     );
 };
 

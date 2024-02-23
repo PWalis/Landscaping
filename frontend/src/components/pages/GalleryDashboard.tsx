@@ -30,10 +30,17 @@ const GalleryDashboard: FC = () => {
   }, []);
 
   return (
-    (authorized && <div className="bg-slate-400 ">
-      <h1 className="text-5xl text-gray-800 font-bold pb-3">Gallery Dashboard</h1>
-      <UploadGalleryItem />
-      <div className="max-w-96"><BeforeAndAfterImg /></div>
+    (authorized &&
+        <div className="bg-stone-300/50 h-lvh">
+            <div className="flex flex-col items-center justify-center">
+                <h1 className="text-5xl text-green-700/60 font-bold pb-3 mt-10">Gallery Dashboard</h1>
+                <UploadGalleryItem />
+            </div>
+            <div className="mt-5 flex justify-center items-center h-auto">
+                <div className='w-[600px]'>
+                    <BeforeAndAfterImg />
+                </div>
+            </div>
     </div>)
   );
 };
