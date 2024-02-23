@@ -8,9 +8,9 @@ export class GalleryItem {
   @Column()
   date: string;
 
-  @Column()
+  @Column("longtext")
   before: string;
 
-  @Column()
+  @Column("longtext")
   after: string;
 }

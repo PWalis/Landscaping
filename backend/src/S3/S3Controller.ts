@@ -9,13 +9,11 @@ import { s3Client } from "./S3Connection";
 require("dotenv").config();
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
-const hashFilename = (filename, username) => {
-  const saltedFilename = filename + username;
-  const hash = crypto.SHA(saltedFilename);
-  return hash.toString();
+export const hashFilename = (filename: string): string => {
+  return crypto.SHA256(filename).toString();
 };
 
-const resizeImage = (buffer, width, height) => {
+const resizeImage = (buffer: Buffer, width: number, height: number): Promise<Buffer | void> => {
   const resizedImage = sharp(buffer)
     .resize(width, height)
     .toBuffer()
@@ -29,53 +27,50 @@ const resizeImage = (buffer, width, height) => {
   return resizedImage;
 };
 
-const uploadFile = async (file, username) => {
+export const uploadFile = async (file: any, filename: string) => {
   console.log("uploading file");
-  const filename = hashFilename(file.originalname, username);
-  const resizedImage = await resizeImage(file.buffer, 200, 200);
+  const resizedImage = await resizeImage(file.buffer, 600, 600);
   const params = {
-    Bucket: process.env.BUCKET_NAME,
+    Bucket: process.env.AWS_BUCKET_NAME,
     Key: filename,
     Body: resizedImage,
     ContentType: file.mimetype,
   };
-  const returnedUpload = await s3Client
+  await s3Client
     .send(new PutObjectCommand(params))
-    .then((data) => {
+    .then((data: any) => {
       console.log("Successfully uploaded file.");
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("Error uploading file.", error);
     });
 };
 
 //get presigned url
-const getPresignedUrl = async (bucketName, fileName) => {
+export const getPresignedUrl = async (bucketName: string, fileName: string) => {
   const params = {
     Bucket: bucketName,
     Key: fileName,
   };
   const command = new GetObjectCommand(params);
-  const signedUrl = await getSignedUrl(s3Client, command, {
-    expiresIn: 604800,
-  });
-  console.log(signedUrl);
+  const signedUrl = await getSignedUrl(s3Client, command);
+  console.log("getPreSignedURL", signedUrl);
   return signedUrl;
 };
 
 // delete file from s3
-const deleteFile = async (bucketName, fileName) => {
+export const deleteFile = async (bucketName: string, fileName: string) => {
   const params = {
     Bucket: bucketName,
     Key: fileName,
   };
   await s3Client
     .send(new DeleteObjectCommand(params))
-    .then((data) => {
+    .then((data: any) => {
       console.log("Successfully deleted file.", data);
       return data;
     })
-    .catch((error) => {
+    .catch((error: any) => {
       console.log("Error deleting file.", error);
     });
 };
