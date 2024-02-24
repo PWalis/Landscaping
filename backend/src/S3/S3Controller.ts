@@ -10,7 +10,8 @@ require("dotenv").config();
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
 export const hashFilename = (filename: string): string => {
-  return crypto.SHA256(filename).toString();
+  const saltedFilename = filename + crypto.lib.WordArray.random(128 / 8);
+  return crypto.SHA256(saltedFilename).toString();
 };
 
 const resizeImage = (buffer: Buffer, width: number, height: number): Promise<Buffer | void> => {
@@ -47,14 +48,14 @@ export const uploadFile = async (file: any, filename: string) => {
 };
 
 //get presigned url
-export const getPresignedUrl = async (bucketName: string, fileName: string) => {
+export const getPresignedUrl = async (bucketName: string, fileName: string, expiry: number) => {
+  console.log("getting presigned url")
   const params = {
     Bucket: bucketName,
     Key: fileName,
   };
   const command = new GetObjectCommand(params);
-  const signedUrl = await getSignedUrl(s3Client, command);
-  console.log("getPreSignedURL", signedUrl);
+  const signedUrl = await getSignedUrl(s3Client, command, {expiresIn: expiry});
   return signedUrl;
 };
 
