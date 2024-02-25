@@ -1,10 +1,14 @@
 import { type FC, useState } from "react";
 import { useCookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { setBeforeImage, setAfterImage } from "../../../ReduxStore/GalleryUploadSlice"; 
+import Resizer from "react-image-file-resizer";
 
 const UploadGalleryItem: FC = () => {
   const [imgBefore, setImgBefore] = useState<File>(null!);
   const [imgAfter, setImgAfter] = useState<File>(null!);
   const [cookies, setCookie] = useCookies(["accessToken"]);
+  const dispatch = useDispatch();
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -28,22 +32,44 @@ const UploadGalleryItem: FC = () => {
       });
   };
 
-  const imgBeforeChangeHandler = (
+  const imgBeforeChangeHandler = async(
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    // const reader = new FileReader();
-    // reader.readAsDataURL(event.target.files![0]);
-    // reader.onloadend = (data) => {setImgBefore(data.target?.result as string)};
-    setImgBefore(event.target.files![0]);
+    const file = event.target.files![0]
+    // const photo = window.URL.createObjectURL(file)
+    Resizer.imageFileResizer(
+      file,
+      600,
+      600,
+      "JPEG",
+      100,
+      0,
+      (uri) => {
+       dispatch(setBeforeImage(uri as any));
+      },
+      "base64",
+    );
+    setImgBefore(file);
   };
 
   const imgAfterChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    // const reader = new FileReader();
-    // reader.readAsDataURL(event.target.files![0]);
-    // reader.onloadend = (data) => {setImgBefore(data.target?.result as string)};
-    setImgAfter(event.target.files![0]);
+    const file = event.target.files![0]
+    // const photo = window.URL.createObjectURL(file);
+    Resizer.imageFileResizer(
+      file,
+      600,
+      600,
+      "JPEG",
+      100,
+      0,
+      (uri) => {
+       dispatch(setAfterImage(uri as any));
+      },
+      "base64",
+    );
+    setImgAfter(file);
   };
 
   return (
