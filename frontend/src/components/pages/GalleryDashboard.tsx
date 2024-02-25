@@ -3,11 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import BeforeAndAfterImg from "../page elements/Gallery Sections/BeforeAndAfterImg";
 import UploadGalleryItem from "../page elements/Gallery Sections/UploadGalleryItem";
+import { useDispatch, useSelector} from "react-redux";
+import { RootState } from "../../ReduxStore/Store";
 
 const GalleryDashboard: FC = () => {
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies(["accessToken"]);
   const [authorized, setAuthorized] = useState<boolean>(false);
+  const beforeImage: string  = useSelector((state: RootState) => state.galleryUpload.value.beforeImage);
+  const afterImage: string = useSelector((state: RootState) => state.galleryUpload.value.afterImage);
 
   useEffect(() => {
     //check if user is authorized to load page
@@ -18,7 +22,6 @@ const GalleryDashboard: FC = () => {
       },
     })
       .then((response) => {
-        console.log(response);
         if (response.status === 403) {
           navigate("/login");
         } else {
@@ -39,9 +42,6 @@ const GalleryDashboard: FC = () => {
             </div>
             <div className="mt-5 flex justify-center items-center h-auto">
                 <div className='w-[600px]'>
-                    <BeforeAndAfterImg />
-                    <BeforeAndAfterImg />
-                    <BeforeAndAfterImg />
                 </div>
             </div>
     </div>)

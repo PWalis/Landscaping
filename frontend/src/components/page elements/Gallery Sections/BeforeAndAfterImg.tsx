@@ -1,11 +1,14 @@
 import {type FC} from "react";
 import ReactCompareImage from "react-compare-image";
-import afterPic from "../../../assets/after-pic.jpg";
-import beforePic from "../../../assets/before-pic.jpg";
 
-const BeforeAndAfterImg: FC = () => {
+interface BeforeAndAfterImgProps {
+    beforeImage: string;
+    afterImage: string;
+}
+
+const BeforeAndAfterImg: FC<BeforeAndAfterImgProps> = ({beforeImage, afterImage}) => {
     return (
-        <ReactCompareImage leftImage={beforePic} rightImage={afterPic}></ReactCompareImage>
+        <ReactCompareImage leftImage={beforeImage} rightImage={afterImage}></ReactCompareImage>
     );
 };
 

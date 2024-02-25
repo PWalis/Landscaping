@@ -9,8 +9,17 @@ export class GalleryItem {
   date: string;
 
   @Column()
+  expiry: number;
+
+  @Column("longtext")
+  beforeName: string;
+
+  @Column("longtext")
   before: string;
 
-  @Column()
+  @Column("longtext")
+  afterName: string;
+
+  @Column("longtext")
   after: string;
 }
