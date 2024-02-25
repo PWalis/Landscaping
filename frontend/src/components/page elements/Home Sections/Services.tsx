@@ -10,7 +10,7 @@ interface ServicesProps {
 
 const Services = React.forwardRef<HTMLDivElement, ServicesProps>(( _props, ref ) => {
   return (
-    <section className="h-lvh bg-stone-300/50 flex flex-col items-center">
+    <section id="services" className="h-lvh bg-stone-300/50 flex flex-col items-center">
       <div className="mt-20 pr-64 pl-64" ref={ref}>
         <div className="flex flex-row items-center justify-center">
           <div className="flex-col">

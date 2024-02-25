@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 const Main: FC = () => {
     return (
-        <main className="bg-cover bg-center h-screen flex items-end justify-start relative">
+        <main id="home" className="bg-cover bg-center h-screen flex items-end justify-start relative">
             <section className="m-5 relative z-10">
                 <div className="flex justify-items-center flex-col">
                     <p className="text-white font-bold text-2xl bg-black bg-opacity-50 p-10 italic">
