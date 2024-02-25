@@ -31,8 +31,6 @@ const GalleryContent: React.FC = () => {
                 <span></span>
                 <span></span>
             </button>
-            {/*<button onClick={handlePrevClick} className="arrow-button left-arrow"><img src={arrowNext} alt="Previous"/></button>*/}
-            {/*<button onClick={handleNextClick} className="arrow-button right-arrow"><img src={arrowNext} alt="Next"/></button>*/}
         </div>
     );
 };

@@ -40,6 +40,8 @@ const GalleryDashboard: FC = () => {
             <div className="mt-5 flex justify-center items-center h-auto">
                 <div className='w-[600px]'>
                     <BeforeAndAfterImg />
+                    <BeforeAndAfterImg />
+                    <BeforeAndAfterImg />
                 </div>
             </div>
     </div>)

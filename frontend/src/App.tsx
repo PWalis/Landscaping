@@ -2,6 +2,8 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { BrowserRouter } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 // Import the components
 import Home from "./components/pages/Home";

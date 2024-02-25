@@ -75,9 +75,9 @@
 }
 
 .full-screen-container {
-    width: 100vw; /* 100% of the viewport width */
     height: 100vh; /* 100% of the viewport height */
-    overflow: hidden; /* Hide overflowing content */
+    width: 99vw;
+    overflow-y: hidden; /* Hide overflowing content */
 }
 
 .full-screen-image {

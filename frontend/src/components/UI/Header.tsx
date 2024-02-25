@@ -1,5 +1,9 @@
-import { type FC} from "react";
-import { Link } from "react-router-dom";
+import { type FC, useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
+import { Link, useLocation } from "react-router-dom";
+import smoothscroll from "smoothscroll-polyfill";
+smoothscroll.polyfill();
+
 
 interface HeaderProps {
   title: string;
@@ -8,6 +12,17 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
+  const location = useLocation();
+
+  const isGalleryPage = location.pathname === '/gallery';
+  const isHomePage = location.pathname === '/';
+
+  useEffect(() => {
+    if (isGalleryPage) {
+      // Scroll to the top of the page when isGalleryPage is true
+      window.scrollTo({ top: 0 });
+    }
+  }, [isGalleryPage]);
 
 
   return (
@@ -16,28 +31,35 @@ const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
         <div className="flex gap-10 items-baseline">
           <h1 className="font-bold text-2xl "><Link to="/">{title}</Link></h1>
           <nav className="flex gap-10 text-sm font-bold hover:text-white">
-            <Link
-                to="/contact"
-                className=""
-            >
-              Contact Us
-            </Link>
-            <Link to="/services"
-                  className=""
-            >
-              Services
-            </Link>
-            <Link to="/testimonials"
-            >
-              Testimonials
-            </Link>
+            {!isGalleryPage ? (
+                <><Link
+                    to="/gallery"
+                    className=""
+                >
+                  Gallery
+                </Link><HashLink smooth to="#services"
+                >
+                  Services
+                </HashLink><HashLink smooth to="#testimonials"
+                >
+                  Testimonials
+                </HashLink><Link
+                    to="/contact"
+                    className=""
+                >
+                  contact us
+                </Link></>
+            ) : (
+                <Link to="/" className="">Home</Link>
+            )}
           </nav>
         </div>
         <div className="flex gap-2 list-none">
-          {/*Using a link instead of a button: provides the error handling if button is clicked multiple times*/}
+          {!isGalleryPage &&
           <Link to="/gallery"
                 className="flex border-2 border-gray-100 text-white text-sm font-bold py-4 px-10 items-center"> View
             Gallery </Link>
+              }
           <Link
               to="/makeAppointment"
               className=" text-sm flex bg-green-500/80 font-bold hover:bg-green-500 text-white py-5 px-4 transition duration-200 items-center"
