@@ -42,6 +42,7 @@ const GalleryDashboard: FC = () => {
             </div>
             <div className="mt-5 flex justify-center items-center h-auto">
                 <div className='w-[600px]'>
+                  <BeforeAndAfterImg beforeImage={beforeImage} afterImage={afterImage}/>
                 </div>
             </div>
     </div>)
