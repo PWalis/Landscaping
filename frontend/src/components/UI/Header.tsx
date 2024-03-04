@@ -1,7 +1,8 @@
-import { type FC, useEffect } from "react";
+import { type FC, useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
 import { Link, useLocation } from "react-router-dom";
 import smoothscroll from "smoothscroll-polyfill";
+import HamburgerIcon from "../../assets/hamburger-menu.svg"
 smoothscroll.polyfill();
 
 
@@ -11,7 +12,13 @@ interface HeaderProps {
   isScrolled: boolean;
 }
 
-const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
+const HeaderDesktop: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen((open) => !open)
+  };
+  
   const location = useLocation();
 
   const isGalleryPage = location.pathname === '/gallery';
@@ -30,7 +37,7 @@ const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
           className={`fixed inset-x-0 p-2 pl-7 pr-7 flex flex-row justify-between items-center z-50 bg-gray-900 font-sans2 uppercase transition-all duration-500 ${isScrolled ? (`h-20 ${servicesYPosition < 200 ? "bg-opacity-100 text-gray-100" : "bg-opacity-50 text-gray-100"}`) : "h-28 bg-opacity-0 text-white "}`}>
         <div className="flex gap-10 items-baseline">
           <h1 className="font-bold text-2xl "><Link to="/">{title}</Link></h1>
-          <nav className="flex gap-10 text-sm font-bold hover:text-white">
+          <nav className="hidden text-sm font-bold md:flex md:gap-10 hover:text-white">
             {!isGalleryPage ? (
                 <><Link
                     to="/gallery"
@@ -54,7 +61,8 @@ const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
             )}
           </nav>
         </div>
-        <div className="flex gap-2 list-none">
+        <div onClick={toggleMenu} className="md:hidden"><img src={HamburgerIcon} alt="" /></div>
+        <div className="hidden xl:flex xl:gap-2 xl:list-none">
           {!isGalleryPage &&
           <Link to="/gallery"
                 className="flex border-2 border-gray-100 text-white text-sm font-bold py-4 px-10 items-center"> View
@@ -71,4 +79,4 @@ const Header: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) => {
   );
 };
 
-export default Header;
+export default HeaderDesktop;
