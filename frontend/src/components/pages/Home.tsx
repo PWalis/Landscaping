@@ -4,6 +4,8 @@ import Main from "../page elements/Home Sections/Main.tsx";
 import Services from "../page elements/Home Sections/Services.tsx";
 import Testimonials from "../page elements/Home Sections/Testimonials.tsx";
 import Footer from "../UI/Footer.tsx";
+import HeaderDesktop from "../UI/Header";
+import HeaderMobile from "../UI/HeaderMobile.tsx";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Home: FC = () => {
@@ -31,17 +33,30 @@ const Home: FC = () => {
 
   return (
     <>
-      <Header
-        title="Isai's Landscaping"
-        servicesYPosition={servicesYPosition}
-        isScrolled={scrollPosition > 0 ? true : false}
-      />
+            <HeaderDesktop
+          title="Isai's Landscaping"
+          servicesYPosition={servicesYPosition}
+          isScrolled={scrollPosition > 0 ? true : false}
+        />
+      {/* {window.innerWidth > 1200 ? (
+        <HeaderDesktop
+          title="Isai's Landscaping"
+          servicesYPosition={servicesYPosition}
+          isScrolled={scrollPosition > 0 ? true : false}
+        />
+      ) : (
+        <HeaderMobile
+          title="Isai's Landscaping"
+          servicesYPosition={servicesYPosition}
+          isScrolled={scrollPosition > 0 ? true : false}
+        />
+      )} */}
       <Main />
       <Services ref={servicesRef} />
       <Testimonials />
       <Footer />
     </>
   );
-};
+      }
 
 export default Home;

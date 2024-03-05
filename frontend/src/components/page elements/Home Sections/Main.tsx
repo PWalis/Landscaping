@@ -22,7 +22,7 @@ const Main: FC = () => {
             </section>
             <div className="bg-image"></div>
             <div className="text-center text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-                <h1 className="text-8xl font-bold">ISAI'S LANDSCAPING</h1>
+                <h1 className="text-6xl md:text-8xl shrink font-bold">ISAI'S LANDSCAPING</h1>
             </div>
         </main>
     );
