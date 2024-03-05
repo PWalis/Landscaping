@@ -4,7 +4,7 @@ import Header from "../UI/Header";
 const Contact: FC = () => {
     return (
         <>
-            <Header title="Isai's Landscaping | Contact" />
+            <Header title="Isai's Landscaping | Contact" servicesYPosition={0} isScrolled={false}/>
         </>
     );
 };
