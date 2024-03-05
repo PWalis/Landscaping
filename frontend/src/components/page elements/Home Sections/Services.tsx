@@ -3,6 +3,7 @@ import ServicePageImage from "../../../assets/services-image.jpg";
 import GardeningShearsImage from "../../../assets/gardening-shears.icon.png";
 import MaintenanceImage from "../../../assets/maintenance-icon.png";
 import IrrigationImage from "../../../assets/irrigation-icon.png";
+import ServiceCard from "../../UI/ServiceCard";
 
 interface ServicesProps {
   ref: RefObject<HTMLDivElement>;
@@ -18,7 +19,7 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
         <div className="mt-20" ref={ref}>
           <div className="flex flex-row items-center justify-center max-w-[1280px]">
             <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-none">
-              <h1 className="font-bold text-5xl text-green-700/60 mr-8 lg:col-span-2 lg:self-end">
+              <h1 className="font-bold text-center text-5xl text-green-700/60 mr-8 lg:col-span-2 lg:self-end">
                 Let's keep your home looking fresh
               </h1>
               <div className="row-span-2">
@@ -45,61 +46,30 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
           </div>
 
           <div className="flex flex-wrap justify-center gap-10 ">
-            <div className="flex flex-col items-center max-w-[475px]">
-              <img
-                className="w-20 h-auto"
-                src={GardeningShearsImage}
-                alt="Gardening Shears for Landscaping"
-              />
-              <div className="bg-green-300/20 p-4">
-                <h2 className="text-4xl font-bold text-zinc-600 pb-3">
-                  Landscaping
-                </h2>
-                <p className="text-zinc-500">
-                  {" "}
-                  Keep your trees healthy and looking great with our
+            <ServiceCard 
+              img={GardeningShearsImage}
+              alt="Gardening Shears for Landscaping"
+              title="Landscaping"
+              text="Keep your trees healthy and looking great with our
                   professional tree trimming services. We'll remove dead or
                   overgrown branches, shape your trees for optimal growth, and
-                  help keep your yard safe from falling limbs.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center max-w-[410px]">
-              <img
-                className="w-20 h-auto"
-                src={IrrigationImage}
-                alt="Irrigation for Landscaping"
-              />
-              <div className="bg-green-300/30 p-4 mb-4">
-                <h2 className="text-4xl font-bold  text-zinc-600 pb-3">
-                  Irrigation
-                </h2>
-                <p className="text-zinc-500">
-                  Don't let dry weather ruin your lawn. Our irrigation services
-                  can help keep your grass and plants healthy and hydrated all
-                  season long. From installation to repairs, we've got you
-                  covered.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center max-w-[401px]">
-              <img
-                className="w-20 h-auto"
-                src={MaintenanceImage}
-                alt="Maintenance for Landscaping"
-              />
-              <div className="bg-green-300/40 p-4 mb-4">
-                <h2 className="text-4xl font-bold text-zinc-600 pb-3">
-                  Maintenance
-                </h2>
-                <p className="text-zinc-500">
-                  Is your yard in need of a little TLC? Our yard clean-up
-                  services can help get things back in shape. We'll remove
-                  debris, trim overgrown shrubs, and make sure your yard looks
-                  its best.
-                </p>
-              </div>
-            </div>
+                  help keep your yard safe from falling limbs."/>
+           <ServiceCard 
+              img={IrrigationImage}
+              alt="Irrigation for Landscaping"
+              title="Irrigation"
+              text="Don't let dry weather ruin your lawn. Our irrigation services
+              can help keep your grass and plants healthy and hydrated all
+              season long. From installation to repairs, we've got you
+              covered."/>
+           <ServiceCard 
+              img={MaintenanceImage}
+              alt="Maintenance for Landscaping"
+              title="Maintenance"
+              text="Don't let dry weather ruin your lawn. Our irrigation services
+              can help keep your grass and plants healthy and hydrated all
+              season long. From installation to repairs, we've got you
+              covered."/>
           </div>
         </div>
       </section>
