@@ -1,5 +1,5 @@
-import { type FC, useEffect } from "react";
-import { HashLink } from "react-router-hash-link";
+import { type FC } from "react";
+// import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import smoothscroll from "smoothscroll-polyfill";
 import HamburgerIcon from "../../assets/hamburger-menu.svg"
