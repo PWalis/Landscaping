@@ -14,32 +14,32 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
     return (
       <section
         id="services"
-        className="bg-stone-300/50 flex flex-col items-center pb-20"
+        className="bg-stone-300/50 flex flex-col items-center"
       >
-        <div className="mt-20" ref={ref}>
-          <div className="flex flex-row items-center justify-center max-w-[1280px]">
-            <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-none">
-              <h1 className="font-bold text-center text-5xl text-green-700/60 mr-8 lg:col-span-2 lg:self-end">
-                Let's keep your home looking fresh
+        <div className="mt-10 mb-10 xl:mt-20 xl:mb-20 pr-10 pl-10" ref={ref}>
+          <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-center row-span-2 max-w-[1280px] mx-auto">
+            <div className="grid grid-rows-3 lg:grid-cols-1 xl:grid-cols-3 xl:grid-rows-none">
+              <h1 className="font-bold text-center flex items-center xl:text-left text-4xl sm:text-5xl text-green-700/60  lg:col-span-2  xl:pb-3">
+                Let's keep your home looking fresh!
               </h1>
-              <div className="row-span-2">
+              <div className="row-span-2 justify-center flex items-center">
                 <img
                   src={ServicePageImage}
                   alt="Landscaping Services Image"
-                  className=" max-h-72 m-auto object-cover rounded-lg shadow-lg "
+                  className=" max-h-[300px] object-cover rounded-lg shadow-lg "
                 />
               </div>
-              <p className="text-xl text-zinc-500 max-w-xl pt-3 lg:col-start-1 lg:col-span-2 sm:">
+              <div className="text-lg xl:text-xl text-justify bg-green-500/10 text-zinc-800 rounded-md p-6 max-w-[450px] flex items-center lg:flex-col justify-center m-auto mt-4 xl:pt-1 xl:m-1 xl:max-w-2xl lg:col-start-1 lg:col-span-2">
                 "A well-maintained yard not only looks great, but it also
                 creates a welcoming environment for you and your family. Our
                 yard clean-up services are designed to help you achieve just
                 that. From leaf removal to debris cleanup, we'll leave your yard
                 looking neat and tidy."{" "}
-              </p>
+              </div>
             </div>
           </div>
           <div className="text-center pt-14 pb-10">
-            <h1 className="text-3xl text-green-900/60 italic">
+            <h1 className="text-3xl font-bold text-green-900/60 italic">
               {" "}
               The Services Our Customers Love:{" "}
             </h1>
@@ -50,6 +50,7 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
               img={GardeningShearsImage}
               alt="Gardening Shears for Landscaping"
               title="Landscaping"
+              color="bg-green-300/20"
               text="Keep your trees healthy and looking great with our
                   professional tree trimming services. We'll remove dead or
                   overgrown branches, shape your trees for optimal growth, and
@@ -58,6 +59,7 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
               img={IrrigationImage}
               alt="Irrigation for Landscaping"
               title="Irrigation"
+              color="bg-green-300/40"
               text="Don't let dry weather ruin your lawn. Our irrigation services
               can help keep your grass and plants healthy and hydrated all
               season long. From installation to repairs, we've got you
@@ -66,6 +68,7 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
               img={MaintenanceImage}
               alt="Maintenance for Landscaping"
               title="Maintenance"
+              color="bg-green-300/60"
               text="Don't let dry weather ruin your lawn. Our irrigation services
               can help keep your grass and plants healthy and hydrated all
               season long. From installation to repairs, we've got you

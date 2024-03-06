@@ -2,7 +2,9 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
+.body {
+    overflow: hidden;
+}
 .bg-image {
     position: absolute;
     top: 0;

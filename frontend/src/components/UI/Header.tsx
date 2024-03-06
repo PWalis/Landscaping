@@ -34,7 +34,7 @@ const HeaderDesktop: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) 
 
   return (
       <header
-          className={`fixed inset-x-0 p-2 pl-7 pr-7 flex flex-row justify-between items-center z-50 bg-gray-900 font-sans2 uppercase transition-all duration-500 ${isScrolled ? (`h-20 ${servicesYPosition < 200 ? "bg-opacity-100 text-gray-100" : "bg-opacity-50 text-gray-100"}`) : "h-28 bg-opacity-0 text-white "}`}>
+          className={`fixed inset-x-0 pr-4 pl-4 flex flex-row justify-between items-center z-50 bg-gray-900 font-sans2 uppercase transition-all duration-500 ${isScrolled ? (`h-20 ${servicesYPosition < 200 ? "bg-opacity-100 text-gray-100" : "bg-opacity-50 text-gray-100"}`) : "h-28 bg-opacity-0 text-white "}`}>
         <div className="flex gap-10 items-baseline">
           <h1 className="font-bold text-2xl "><Link to="/">{title}</Link></h1>
           <nav className="hidden text-sm font-bold md:flex md:gap-10 hover:text-white">

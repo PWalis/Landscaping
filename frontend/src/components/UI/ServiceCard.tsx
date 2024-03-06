@@ -5,8 +5,9 @@ interface ServiceProps {
     title: string;
     text: string;
     alt: string;
+    color: string;
 }
-const ServiceCard: FC<ServiceProps> = ({img , text, title, alt}) => {
+const ServiceCard: FC<ServiceProps> = ({img , text, title, alt, color}) => {
     return (
         <div className="flex flex-col items-center max-w-[450px]">
           <img
@@ -14,7 +15,7 @@ const ServiceCard: FC<ServiceProps> = ({img , text, title, alt}) => {
             src={img}
             alt={alt}
           />
-          <div className="bg-green-300/20 p-4">
+          <div className={`p-4 ${color}`}>
             <h2 className="text-4xl font-bold text-zinc-600 pb-3">
               {title}
             </h2>

@@ -13,6 +13,8 @@ import Testimonials from "./components/page elements/Home Sections/Testimonials.
 import MakeAppointment from "./components/pages/MakeAppointment.tsx";
 import Login from "./components/pages/Login.tsx";
 import GalleryDashboard from "./components/pages/GalleryDashboard.tsx";
+import BeforeAndAfterSection from "./components/page elements/Home Sections/BeforeAndAfterSection.tsx"
+import Guarantee from "./components/page elements/Home Sections/Guarantee.tsx";
 
 const router = createBrowserRouter([
   // Add routes for the component pages
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
   { path: "/contact", element: <Contact /> },
   { path: "/services", element: <Services /> },
   { path: "/testimonials", element: <Testimonials /> },
+  { path: "/beforeandafter", element: <BeforeAndAfterSection /> },
+  { path: "/guarantee", element: <Guarantee /> },
   { path: "/makeAppointment", element: <MakeAppointment /> },
   { path: "/login", element: <Login /> },
   { path: "/GalleryDashboard", element: <GalleryDashboard /> },
