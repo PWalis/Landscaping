@@ -52,7 +52,7 @@ const HeaderDesktop: FC<HeaderProps> = ({
           <Link to="/">{title}</Link>
         </h1>
         <nav
-          className={`hidden text-sm font-bold md:flex md:gap-10 md:flex-row  hover:text-white md:visible`}
+          className={`hidden text-sm font-bold md:flex md:gap-10 md:flex-row hover:text-white md:visible`}
         >
           {!isGalleryPage ? (
             <>
