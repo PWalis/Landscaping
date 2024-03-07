@@ -8,7 +8,7 @@ const Footer: FC = () => {
 
         <footer className="bg-gray-900 text-gray-300 py-4">
             <div className="flex flex-col items-center justify-center">
-                <h1 className="font-bold text-xl font-sans2"> Isai's Landscaping | (602) 500-5555 </h1>
+                <h1 className="font-bold text-xl font-sans2"> Isai's Landscaping | (623) 666-2727 </h1>
                 <p> isaislandscaping@gmail.com </p>
                 <p> Phoenix, AZ </p></div>
             <div className="container mx-auto flex flex-col my-10 sm:my-0 sm:flex-row items-center justify-between">
