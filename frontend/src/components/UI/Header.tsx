@@ -16,7 +16,7 @@ const HeaderDesktop: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) 
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen((open) => !open)
+    setIsOpen(!isOpen)
   };
   
   const location = useLocation();
@@ -35,9 +35,9 @@ const HeaderDesktop: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) 
   return (
       <header
           className={`fixed inset-x-0 pr-4 pl-4 flex flex-row justify-between items-center z-50 bg-gray-900 font-sans2 uppercase transition-all duration-500 ${isScrolled ? (`h-20 ${servicesYPosition < 200 ? "bg-opacity-100 text-gray-100" : "bg-opacity-50 text-gray-100"}`) : "h-28 bg-opacity-0 text-white "}`}>
-        <div className="flex gap-10 items-baseline">
+        <div className="sm:flex flex-wrap gap-10 items-baseline relative">
           <h1 className="font-bold text-2xl "><Link to="/">{title}</Link></h1>
-          <nav className="hidden text-sm font-bold md:flex md:gap-10 hover:text-white">
+          <nav className={`hidden text-sm font-bold md:flex md:gap-10 md:flex-row  hover:text-white md:visible`}>
             {!isGalleryPage ? (
                 <><Link
                     to="/gallery"
@@ -60,8 +60,27 @@ const HeaderDesktop: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) 
                 <Link to="/" className="">Home</Link>
             )}
           </nav>
+          {isOpen && <nav className="flex flex-col h-full"><><Link
+                    to="/gallery"
+                    className=""
+                >
+                  Gallery
+                </Link><HashLink smooth to="#services"
+                >
+                  Services
+                </HashLink><HashLink smooth to="#testimonials"
+                >
+                  Testimonials
+                </HashLink><Link
+                    to="/contact"
+                    className=""
+                >
+                  contact us
+                </Link></></nav>}
+          
         </div>
-        <div onClick={toggleMenu} className="md:hidden"><img src={HamburgerIcon} alt="" /></div>
+        <div onClick={toggleMenu} className="md:hidden"><img src={HamburgerIcon} alt="Menu" /></div>
+        
         <div className="hidden xl:flex xl:gap-2 xl:list-none">
           {!isGalleryPage &&
           <Link to="/gallery"
@@ -75,6 +94,7 @@ const HeaderDesktop: FC<HeaderProps> = ({title, servicesYPosition, isScrolled}) 
             Schedule Your Appointment Today
           </Link>
         </div>
+        
       </header>
   );
 };
