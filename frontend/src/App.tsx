@@ -15,11 +15,6 @@ import Login from "./components/pages/Login.tsx";
 import GalleryDashboard from "./components/pages/GalleryDashboard.tsx";
 import BeforeAndAfterSection from "./components/page elements/Home Sections/BeforeAndAfterSection.tsx"
 import Guarantee from "./components/page elements/Home Sections/Guarantee.tsx";
-import { StatusBar } from "react-native";
-
-StatusBar.setBarStyle("dark-content", true);
-
-
 
 const router = createBrowserRouter([
   // Add routes for the component pages
