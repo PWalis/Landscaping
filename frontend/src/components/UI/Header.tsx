@@ -26,6 +26,7 @@ const HeaderDesktop: FC<HeaderProps> = ({
   const location = useLocation();
 
   const isGalleryPage = location.pathname === "/gallery";
+  const isContactPage = location.pathname === "/contact";
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const HeaderDesktop: FC<HeaderProps> = ({
         <nav
           className={`hidden text-sm font-bold md:flex md:gap-10 md:flex-row hover:text-white md:visible`}
         >
-          {!isGalleryPage ? (
+          {(!isGalleryPage && !isContactPage) ? (
             <>
               <Link to="/gallery" className="">
                 Gallery

@@ -22,7 +22,7 @@ const DropdownNav: FC<DropdownNavProps> = ({
   };
 
   return (
-    <AnimatePresence initial={true} mode="wait">
+    <AnimatePresence initial={false} mode="wait">
       <motion.nav
         className={`flex justify-center absolute h-[170px] w-full left-0 bg-gray-900`}
           

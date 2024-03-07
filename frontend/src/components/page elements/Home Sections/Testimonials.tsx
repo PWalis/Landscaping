@@ -9,7 +9,7 @@ const Testimonials: FC = () => {
     return (
         <section className="h-auto bg-stone-300/90 flex items-center justify-center" id="testimonials">
             <div className="mt-20 mb-20">
-                <h1 className="text-4xl sm:text-5xl text-center font-bold text-zinc-900/55 mb-10 "> Hear it from our customers: </h1>
+                <h1 className="text-4xl sm:text-5xl text-center font-bold text-zinc-900/55 mb-10 p-6"> Hear it from our customers: </h1>
                 <div className="flex flex-row flex-wrap wrap gap-10 justify-center items-center">
                         <TestimonialCard img={TestimonialImage1} text={"Isai provided wonderful service tidying up and mantaining all the weeds in our yard. He does an amazing job keeping our old cactus alive!"} author={"Julia Write"} area={"Phoenix AZ"}></TestimonialCard>
                         <TestimonialCard img={TestimonialImage2} text={"Isai provided wonderful service tidying up and mantaining all the weeds in our yard. He does an amazing job keeping our old cactus alive!"} author={"Jessie Jackson"} area={"Phoenix AZ"}></TestimonialCard>
