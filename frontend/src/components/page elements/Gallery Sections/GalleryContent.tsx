@@ -17,7 +17,7 @@ const GalleryContent: React.FC = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     };
     return (
-        <div className="gallery-content">
+        <div className="gallery-content overflow-hidden">
             <div className="full-screen-container">
                 <img className="full-screen-image" src={images[currentImageIndex]} alt="" />
             </div>
