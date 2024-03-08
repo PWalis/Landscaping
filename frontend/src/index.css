@@ -5,6 +5,7 @@
 .body {
     overflow: hidden;
 }
+
 .bg-image {
     position: absolute;
     top: 0;
@@ -99,8 +100,27 @@
     object-fit: cover; /* Maintain aspect ratio while covering the container */
 }
 
+/* MOBILE ARROW GALLERY PAGE */
+.mobile-arrow {
+    background-image: url('assets/mobile-arrow.png');
+    padding: 5px;
+    position: absolute;
+    top: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+}
 
+.mobile-arrow-left {
+    left: 0;
+    transform: rotate(180deg); /* Rotate the left arrow to face left */
+}
+.mobile-arrow-right {
+    right: 0;
+    transform: rotate(360deg); /* Rotate the left arrow to face left */
+}
 
+/* DESKTOP ARROW GALLERY PAGE */
 .left-arrow,
 .right-arrow {
     padding: 5px;
@@ -144,4 +164,6 @@
         transform: rotate(45deg) translate(20px, 20px);
     }
 }
+
+
 

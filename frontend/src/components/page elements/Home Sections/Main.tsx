@@ -14,7 +14,7 @@ const Main: FC = () => {
                     </p>
                     <Link
                         to="/makeAppointment"
-                        className="bg-green-600 hover:bg-green-500 text-white font-bold font-sans2 uppercase py-6 px-4 flex items-center justify-center"
+                        className="bg-green-600 hover:bg-green-500 text-white transition duration-300 font-bold font-sans2 uppercase py-6 px-4 flex items-center justify-center"
                     >
                         Schedule Your Appointment Today
                     </Link>
