@@ -8,7 +8,7 @@ import { DataSource } from "typeorm";
 require("dotenv").config();
 
 interface MulterRequest extends Request {
-  file: any;
+  files: any;
 }
 
 export const getGallery = async (req: Request, res: Response) => {
