@@ -30,11 +30,11 @@ const HeaderDesktop: FC<HeaderProps> = ({
   const isHomePage = location.pathname === "/";
 
   useEffect(() => {
-    if (isGalleryPage) {
+    if (isGalleryPage || isHomePage) {
       // Scroll to the top of the page when isGalleryPage is true
       window.scrollTo({ top: 0 });
     }
-  }, [isGalleryPage]);
+  }, [isGalleryPage, isHomePage]);
 
   return (
     <header
@@ -50,7 +50,8 @@ const HeaderDesktop: FC<HeaderProps> = ({
     >
       <div className="sm:flex flex-wrap gap-10 items-baseline relative">
         <h1 className="font-bold text-2xl ">
-          <Link to="/">{title}</Link>
+          {(isHomePage ? <HashLink smooth to="#home">{title}</HashLink> : <Link to="/">{title}</Link> )}
+          
         </h1>
         <nav
           className={`hidden text-sm font-bold md:flex md:gap-10 md:flex-row hover:text-white md:visible`}
@@ -85,7 +86,7 @@ const HeaderDesktop: FC<HeaderProps> = ({
         {!isGalleryPage && (
           <Link
             to="/gallery"
-            className="flex border-2 border-gray-100 text-white text-sm font-bold py-4 px-10 items-center"
+            className="flex border-2 border-gray-100 hover:bg-white/20 transition duration-300 text-white text-sm font-bold py-4 px-10 items-center"
           >
             {" "}
             View Gallery{" "}
@@ -93,7 +94,7 @@ const HeaderDesktop: FC<HeaderProps> = ({
         )}
         <Link
           to="/makeAppointment"
-          className=" text-sm flex bg-green-500/80 font-bold hover:bg-green-500 text-white py-5 px-4 transition duration-200 items-center"
+          className=" text-sm flex bg-green-500/80 font-bold hover:bg-green-500 text-white py-5 px-4 transition duration-300 items-center"
         >
           Schedule Your Appointment Today
         </Link>
