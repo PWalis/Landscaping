@@ -7,7 +7,9 @@ import { error } from "console";
 import { DataSource } from "typeorm";
 require("dotenv").config();
 
-
+interface MulterRequest extends Request {
+  files: any;
+}
 
 export const getGallery = async (req: Request, res: Response) => {
   await AppDataSource.manager.find(GalleryItem)
@@ -37,10 +39,10 @@ export const deleteFromGallery = async (req: Request, res: Response) => {
   .catch((error: Error) => res.json({error: error.message})) 
 }
 
-export const uploadBeforeAndAfterImage = async (req: Request, res: Response) => {
+export const uploadBeforeAndAfterImage = async (req: MulterRequest, res: Response) => {
   const expiry = 60 * 60 * 24 * 5; // 5 days
-  const beforeImage = req.files[0]
-  const afterImage = req.files[1]
+  const beforeImage = req?.files[0]
+  const afterImage = req?.files[1]
   const hashedBeforeImage = hashFilename(beforeImage.originalname);
   const hashedAfterImage = hashFilename(afterImage.originalname);
 
