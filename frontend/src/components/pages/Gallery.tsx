@@ -12,7 +12,7 @@ const GalleryPage: FC = () => {
   console.log(BASE_URL);
 
   useEffect(() => {
-    fetch(`${BASE_URL}/api/gallery/getGallery`, {
+    fetch(`https://isais-landscaping-c75898a4bda6.herokuapp.com/api/gallery/getGallery`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
