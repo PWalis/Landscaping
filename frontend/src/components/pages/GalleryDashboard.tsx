@@ -17,7 +17,7 @@ const GalleryDashboard: FC = () => {
 
   useEffect(() => {
     //check if user is authorized to load page
-    fetch(`${BASE_URL}/api/auth/authorize`, {
+    fetch(`https://isais-landscaping-c75898a4bda6.herokuapp.com/api/auth/authorize`, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + cookies.accessToken, //send the token in the header
