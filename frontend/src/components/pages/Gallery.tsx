@@ -8,8 +8,11 @@ import BeforeAndAfterImg from "../page elements/Gallery Sections/BeforeAndAfterI
 const GalleryPage: FC = () => {
   const [galleryItems, setGalleryItems] = useState<any[]>([]);
 
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+  console.log(BASE_URL);
+
   useEffect(() => {
-    fetch("http://localhost:3307/api/gallery/getGallery", {
+    fetch(`${BASE_URL}/api/gallery/getGallery`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
