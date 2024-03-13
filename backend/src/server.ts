@@ -21,7 +21,7 @@ const app: Express = express();
 const port = process.env.PORT || 3000;
 
 // CORS
-const allowedOrigins = ["http://localhost:5173, https://landscaping-seven.vercel.app/"];
+const allowedOrigins = ["http://localhost:5173, https://landscaping-seven.vercel.app"];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
 };
