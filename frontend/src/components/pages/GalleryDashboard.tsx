@@ -13,9 +13,11 @@ const GalleryDashboard: FC = () => {
   const beforeImage: string  = useSelector((state: RootState) => state.galleryUpload.value.beforeImage);
   const afterImage: string = useSelector((state: RootState) => state.galleryUpload.value.afterImage);
 
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
   useEffect(() => {
     //check if user is authorized to load page
-    fetch("http://localhost:3307/api/auth/authorize", {
+    fetch(`${BASE_URL}/api/auth/authorize`, {
       method: "POST",
       headers: {
         Authorization: "Bearer " + cookies.accessToken, //send the token in the header
