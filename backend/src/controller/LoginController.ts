@@ -20,6 +20,6 @@ export const login = async (req: Request, res: Response) => {
     })
     .catch((error: any) => {
       console.log("Error during login", error);
-      res.json({ message: "Login failed" });
+      res.json({ message: "Login failed", error: error });
     });
 };
