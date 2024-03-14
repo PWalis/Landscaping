@@ -22,7 +22,7 @@ const Login: FC = () => {
 
   const submitHandler = async(event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await fetch("http://localhost:3307/api/auth/login", {
+    await fetch("https://isais-landscaping-c75898a4bda6.herokuapp.com/api/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
