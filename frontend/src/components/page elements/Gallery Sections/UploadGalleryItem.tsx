@@ -11,7 +11,7 @@ const UploadGalleryItem: FC = () => {
   const dispatch = useDispatch();
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    // event.preventDefault();
+    event.preventDefault();
     const formData = new FormData();
     formData.append("files", imgBefore);
     formData.append("files", imgAfter);
