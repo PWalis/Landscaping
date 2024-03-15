@@ -11,11 +11,10 @@ const UploadGalleryItem: FC = () => {
   const dispatch = useDispatch();
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    // event.preventDefault();
     const formData = new FormData();
     formData.append("files", imgBefore);
     formData.append("files", imgAfter);
-    formData.append("test", "this is a fucking test to see if anything comes through the body of this damn ass request")
     await fetch("https://isais-landscaping-c75898a4bda6.herokuapp.com/api/Gallery/uploadBeforeAndAfterImage", {
       method: "POST",
       headers: {
@@ -25,8 +24,7 @@ const UploadGalleryItem: FC = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        setAfterImage(null!)
-        setBeforeImage(null!)
+        console.log(data);
       })
       .catch((error) => {
         console.error("Error:", error);
