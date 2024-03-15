@@ -16,7 +16,7 @@ const UploadGalleryItem: FC = () => {
     formData.append("files", imgBefore);
     formData.append("files", imgAfter);
     formData.append("test", "this is a fucking test to see if anything comes through the body of this damn ass request")
-    await fetch("http://localhost:3307/api/Gallery/uploadBeforeAndAfterImage", {
+    await fetch("https://isais-landscaping-c75898a4bda6.herokuapp.com/api/Gallery/uploadBeforeAndAfterImage", {
       method: "POST",
       headers: {
         "Authorization": "Bearer " + cookies.accessToken,
@@ -25,7 +25,8 @@ const UploadGalleryItem: FC = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        setAfterImage(null!)
+        setBeforeImage(null!)
       })
       .catch((error) => {
         console.error("Error:", error);
