@@ -5,6 +5,7 @@ import Footer from "../UI/Footer.tsx";
 import GalleryPictures from "../page elements/Gallery Sections/GalleryPictures.tsx";
 import BeforeAndAfterImg from "../page elements/Gallery Sections/BeforeAndAfterImg.tsx";
 
+
 const GalleryPage: FC = () => {
   const [galleryItems, setGalleryItems] = useState<any[]>([]);
 
@@ -12,7 +13,7 @@ const GalleryPage: FC = () => {
   console.log(BASE_URL);
 
   useEffect(() => {
-    fetch(`https://isais-landscaping-c75898a4bda6.herokuapp.com/api/gallery/getGallery`, {
+    fetch(`${BASE_URL}/api/gallery/getGallery`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

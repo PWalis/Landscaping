@@ -39,6 +39,13 @@ export const deleteFromGallery = async (req: Request, res: Response) => {
   .catch((error: Error) => res.json({error: error.message})) 
 }
 
+export const deleteGalleryItem = async (req: Request, res: Response) => {
+  const id = req.body.id;
+  await AppDataSource.manager.delete(GalleryItem, {id: id})
+  .then(() => res.json({message: "Gallery item deleted"}))
+  .catch((error: Error) => res.json({error: error.message}))
+}
+
 export const uploadBeforeAndAfterImage = async (req: MulterRequest, res: Response) => {
   const expiry = 60 * 60 * 24 * 5; // 5 days
   const beforeImage = req?.files[0]

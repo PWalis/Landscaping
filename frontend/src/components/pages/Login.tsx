@@ -8,6 +8,8 @@ const Login: FC = () => {
   const navigate = useNavigate();
   const [cookies, setCookie] = useCookies(["accessToken"]);
 
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
   const usernameOnChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -22,7 +24,7 @@ const Login: FC = () => {
 
   const submitHandler = async(event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await fetch("https://isais-landscaping-c75898a4bda6.herokuapp.com/api/auth/login", {
+    await fetch(`${BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
