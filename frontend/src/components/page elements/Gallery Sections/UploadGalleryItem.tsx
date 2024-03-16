@@ -10,12 +10,14 @@ const UploadGalleryItem: FC = () => {
   const [cookies, setCookie] = useCookies(["accessToken"]);
   const dispatch = useDispatch();
 
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
+
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("files", imgBefore);
     formData.append("files", imgAfter);
-    await fetch("https://isais-landscaping-c75898a4bda6.herokuapp.com/api/Gallery/uploadBeforeAndAfterImage", {
+    await fetch(`${BASE_URL}/api/Gallery/uploadBeforeAndAfterImage`, {
       method: "POST",
       headers: {
         "Authorization": "Bearer " + cookies.accessToken,
@@ -24,7 +26,7 @@ const UploadGalleryItem: FC = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -35,7 +37,6 @@ const UploadGalleryItem: FC = () => {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     const file = event.target.files![0]
-    // const photo = window.URL.createObjectURL(file)
     Resizer.imageFileResizer(
       file,
       600,
@@ -71,6 +72,8 @@ const UploadGalleryItem: FC = () => {
     setImgAfter(file);
   };
 
+  const enableSubmit = (imgBefore !== null) && (imgAfter !== null);
+
   return (
     <div className="flex flex-col max-w-96 items-center justify-center">
       <h1 className="text-2xl text-green-900 font-bold pb-3">
@@ -96,7 +99,8 @@ const UploadGalleryItem: FC = () => {
         <div className="col-span-2 flex items-center justify-center">
         <button
           type="submit"
-          className="rounded-b-sm text-white bg-green-800 py-1 px-10 text-lg font-bold font-sans2 mt-3"
+          className={`${!enableSubmit ? "bg-gray-300" : "bg-green-800"} rounded-b-sm text-white  py-1 px-10 text-lg font-bold font-sans2 mt-3`}
+          disabled={!enableSubmit}
         >
           Submit
         </button>
