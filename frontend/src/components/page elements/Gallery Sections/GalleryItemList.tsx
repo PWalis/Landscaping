@@ -1,9 +1,16 @@
-import { type FC, useEffect, useState } from "react";
+import { type FC, useEffect, useState, useRef } from "react";
 
 const GalleryItemList: FC = () => {
   const [galleryItems, setGalleryItems] = useState<any[]>([]);
 
   const BASE_URL = import.meta.env.VITE_BASE_URL;
+
+  //drag and drop porperties
+  // draggable onDragStart={(e) => dragItem.current=item.id} onDragEnter={(e) => dragOverItem.current=item.id} onDragEnd={onDragEnd}
+
+  //save reference for dragItem and dragOverItem
+  // const dragItem = useRef<HTMLDivElement | null>(null);
+  // const dragOverItem = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     fetch(`${BASE_URL}/api/gallery/getGallery`, {
@@ -42,13 +49,28 @@ const GalleryItemList: FC = () => {
         console.error("Error:", error);
       });
   };
+  //const handle drag end
+  // const onDragEnd = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   handleSort();
+  // };
+
+  //const handle drag sorting
+  // const handleSort = () => {
+  //   const dragItemIndex = galleryItems.findIndex((item) => item.id === Number(dragItem.current));
+  //   const dragOverItemIndex = galleryItems.findIndex((item) => item.id === Number(dragOverItem.current));
+  //   const newGalleryItems = [...galleryItems];
+  //   newGalleryItems.splice(dragOverItemIndex, 0, newGalleryItems.splice(dragItemIndex, 1)[0]);
+  //   setGalleryItems(newGalleryItems);
+  // };
 
   return (
     <div className="flex flex-col bg-gray-300">
       <h1 className=" text-2xl">GalleryItemList</h1>
+      
       {galleryItems.map((item) => {
         return (
-          <div className="flex gap-10 h-60 m-auto mb-10" key={item.id}>
+          <div className="flex gap-10 h-60 pl-20 pr-20 m-auto mb-10 hover:cursor-move" key={item.id} >
             <div className="flex relative h-60">
               <label htmlFor="before" className="text-2xl font-bold absolute left-20 -bottom-10">
                 Before
@@ -67,6 +89,7 @@ const GalleryItemList: FC = () => {
           </div>
         );
       })}
+      
     </div>
   );
 };

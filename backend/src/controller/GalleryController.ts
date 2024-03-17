@@ -64,3 +64,14 @@ export const uploadBeforeAndAfterImage = async (req: MulterRequest, res: Respons
   .catch((error: Error) => res.json({error: error.message}))
 };
 
+//re-oder gallery items
+// export const reorderGalleryItems = async (req: Request, res: Response) => {
+//   const galleryItems = req.body;
+//   for (let galleryItem of galleryItems) {
+//     await AppDataSource.manager.update(GalleryItem, {id: galleryItem.id}, {order: galleryItem.order})
+//     .then(() => res.json({message: "Gallery items reordered"}))
+//     .catch((error: Error) => res.json({error: error.message}))
+//   }
+// }
+
+

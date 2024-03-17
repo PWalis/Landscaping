@@ -5,7 +5,6 @@ import Footer from "../UI/Footer.tsx";
 import GalleryPictures from "../page elements/Gallery Sections/GalleryPictures.tsx";
 import BeforeAndAfterImg from "../page elements/Gallery Sections/BeforeAndAfterImg.tsx";
 
-
 const GalleryPage: FC = () => {
   const [galleryItems, setGalleryItems] = useState<any[]>([]);
 
@@ -29,15 +28,14 @@ const GalleryPage: FC = () => {
   }, []);
 
   return (
-    <>
+    <div className=" bg-gray-300">
       <Header
         title="Isai's Landscaping | Gallery"
         isScrolled={false}
         servicesYPosition={0}
       />
       <GalleryContent />
-      <GalleryPictures />
-      <div className="grid grid-cols-3">
+      <GalleryPictures showLastImage={galleryItems.length % 2 === 0}>
         {galleryItems.map((item) => {
           return (
             <BeforeAndAfterImg
@@ -47,10 +45,9 @@ const GalleryPage: FC = () => {
             />
           );
         })}
-      </div>
+      </GalleryPictures>
       <Footer />
-      <></>
-    </>
+    </div>
   );
 };
 

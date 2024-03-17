@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Generated, Column, Index } from "typeorm";
 
 @Entity()
 export class GalleryItem {
@@ -22,4 +22,5 @@ export class GalleryItem {
 
   @Column("longtext")
   after: string;
+
 }
