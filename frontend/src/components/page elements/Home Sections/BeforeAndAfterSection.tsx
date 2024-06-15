@@ -8,18 +8,20 @@ import BeforeAndAfterImg from "../Gallery Sections/BeforeAndAfterImg";
 const BeforeAndAfter: FC = () => {
   return (
     <section
-      className="h-auto bg-stone-300/40 pb-20 px-10"
+      className="h-auto bg-stone-300/40 pb-20 "
       id="BeforeAndAfter"
     >
         <h2 className="pt-20 text-4xl sm:text-5xl text-center font-bold text-green-900/65">
           {" "}
           Our Recent Projects{" "}
         </h2>
-        <p className="text-lg sm:text-2xl text-center text-stone-700 bg-white/60  mt-5 p-5 max-w-[700px] mx-auto mb-10">
+        <div className="px-10">
+        <p className="text-lg text-center text-stone-700 bg-white/60  mt-5 p-5 max-w-[500px] mx-auto mb-10 ">
           {" "}
           Take a look at how we can transform your outdoor space into a place
           where you truly feel at home!{" "}
-        </p>
+        </p></div>
+        <div className="px-1">
         <div className="max-w-screen-lg mx-auto">
             <div className="mb-10">
               <BeforeAndAfterImg
@@ -32,7 +34,7 @@ const BeforeAndAfter: FC = () => {
                 afterImage={afterImage2}
                 beforeImage={beforeImage2}
               /></div>
-          </div>
+          </div></div>
     </section>
   );
 };
