@@ -19,9 +19,9 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
         <div className="mt-10 mb-10 xl:mt-20 xl:mb-20 pr-10 pl-10" ref={ref}>
           <div className="flex flex-col items-center lg:items-start lg:flex-row lg:justify-center row-span-2 max-w-[1280px] mx-auto">
             <div className="grid grid-rows-3 lg:grid-cols-1 xl:grid-cols-3 xl:grid-rows-none">
-              <h1 className="font-bold text-center flex items-center xl:text-left text-4xl sm:text-5xl text-green-700/60  lg:col-span-2  xl:pb-3">
-                Let's keep your home looking fresh!
-              </h1>
+              <h2 className="font-bold text-center flex items-center xl:text-left text-4xl sm:text-5xl text-green-700/60  lg:col-span-2  xl:pb-3">
+                We'll Make Your Yard Spotless
+              </h2>
               <div className="row-span-2 justify-center flex items-center">
                 <img
                   src={ServicePageImage}
@@ -46,33 +46,33 @@ const Services = React.forwardRef<HTMLDivElement, ServicesProps>(
           </div>
 
           <div className="flex flex-wrap justify-center gap-10 ">
-            <ServiceCard 
+            <ServiceCard
+              img={MaintenanceImage}
+              alt="Maintenance for Landscaping"
+              title="Maintenance"
+              color="bg-green-300/30"
+              text="Refresh your yard and keep it looking great all year round. No matter how overgrown it is, we’ll make it spotless. Our team works quickly and efficiently. Get free weed control treatment when we clean your yard."
+            />
+            <ServiceCard
               img={GardeningShearsImage}
               alt="Gardening Shears for Landscaping"
-              title="Landscaping"
+              title="Trimming"
               color="bg-green-300/20"
               text="Keep your trees healthy and looking great with our
                   professional tree trimming services. We'll remove dead or
                   overgrown branches, shape your trees for optimal growth, and
-                  help keep your yard safe from falling limbs."/>
-           <ServiceCard 
+                  help keep your yard safe from falling limbs."
+            />
+            <ServiceCard
               img={IrrigationImage}
               alt="Irrigation for Landscaping"
               title="Irrigation"
               color="bg-green-300/40"
               text="Don't let dry weather ruin your lawn. Our irrigation services
               can help keep your grass and plants healthy and hydrated all
-              season long. From installation to repairs, we've got you
-              covered."/>
-           <ServiceCard 
-              img={MaintenanceImage}
-              alt="Maintenance for Landscaping"
-              title="Maintenance"
-              color="bg-green-300/60"
-              text="Don't let dry weather ruin your lawn. Our irrigation services
-              can help keep your grass and plants healthy and hydrated all
-              season long. From installation to repairs, we've got you
-              covered."/>
+              season long. From installation, repairs, and timers we've got you
+              covered."
+            />
           </div>
         </div>
       </section>

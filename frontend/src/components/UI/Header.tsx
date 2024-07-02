@@ -92,12 +92,12 @@ const HeaderDesktop: FC<HeaderProps> = ({
             View Gallery{" "}
           </Link>
         )}
-        <Link
-          to="/makeAppointment"
-          className=" text-sm flex bg-green-500/80 font-bold hover:bg-green-500 text-white py-5 px-4 transition duration-300 items-center"
+        <a
+        href="tel:6236662727"
+          className=" tracking-wider text-xl flex bg-green-500/80 font-bold hover:bg-green-500 text-white py-5 px-4 transition duration-300 items-center"
         >
-          Schedule Your Appointment Today
-        </Link>
+          (623)-666-2727
+        </a>
       </div>
         <DropdownNav isOpen={isOpen} isScrolled={isScrolled} servicesYPosition={servicesYPosition}/>
     </header>
