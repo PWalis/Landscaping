@@ -19,7 +19,7 @@ const ServiceCard: FC<ServiceProps> = ({img , text, title, alt, color}) => {
             <h2 className="text-4xl font-bold text-zinc-600 pb-3">
               {title}
             </h2>
-            <p className="text-zinc-500">
+            <p className="text-zinc-500 font-semibold">
               {text}
             </p>
           </div>

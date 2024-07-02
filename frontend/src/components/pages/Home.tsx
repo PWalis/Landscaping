@@ -58,7 +58,7 @@ const Home: FC = () => {
       <Services ref={servicesRef} />
       <Testimonials />
       <BeforeAndAfterSection/>
-      <Guarantee/>
+      {/* <Guarantee/> */}
       <Footer />
     </>
   );

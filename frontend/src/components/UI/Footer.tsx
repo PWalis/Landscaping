@@ -17,7 +17,7 @@ const Footer: FC = () => {
                     <li><Link to="/makeAppointment" className="hover:text-white">Schedule Appointment</Link></li>
                     <li><Link to="/gallery" className="hover:text-white">Gallery</Link></li>
                 </ul>
-                <p className="text-sm">&copy; 2024 Isia's Landscaping. All rights reserved.</p>
+                <p className="text-sm">&copy; 2024 Isai's Landscaping. All rights reserved.</p>
             </div>
         </footer>
     );
