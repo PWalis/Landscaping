@@ -58,17 +58,17 @@ const HeaderDesktop: FC<HeaderProps> = ({
         >
           {(!isGalleryPage && !isContactPage) ? (
             <>
-              <Link to="/gallery" className="">
-                Gallery
-              </Link>
               <HashLink smooth to="#services">
                 Services
               </HashLink>
               <HashLink smooth to="#testimonials">
                 Testimonials
               </HashLink>
+              <HashLink smooth to="#BeforeAndAfter">
+                Projects
+              </HashLink>
               <Link to="/contact" className="">
-                contact us
+                Call Us
               </Link>
             </>
           ) : (

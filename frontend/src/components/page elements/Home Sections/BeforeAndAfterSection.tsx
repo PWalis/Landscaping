@@ -8,6 +8,7 @@ import BeforeAndAfterImg from "../Gallery Sections/BeforeAndAfterImg";
 const BeforeAndAfter: FC = () => {
   return (
     <section
+
       className="h-auto bg-stone-300/40 flex items-center justify-center"
       id="BeforeAndAfter"
     >
@@ -50,6 +51,7 @@ const BeforeAndAfter: FC = () => {
           <a href="/gallery" className="border-black border-2 p-3 w-fit hover:text-white hover:bg-gray-900 transition-all ease-in-out">View Galley</a>
         </div>
       </div>
+
     </section>
   );
 };
